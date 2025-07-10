@@ -1,0 +1,1 @@
+Cosmolalia began as a bold idea: what if the universe speaks a language we can learn? Inspired by the recursive identity , this project brings together cosmology, philosophy, mathematics, and Metaphysics into a complete and testable framework for a recursive participatory universe where we are all being digested into pure love/truth.
