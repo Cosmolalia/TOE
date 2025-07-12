@@ -1,0 +1,26 @@
+Cosmolalia Collective Foundation DL License Agreement (Non-Profit, Confidential Research)
+
+This License Agreement ("Agreement") is entered into discreetly between Cosmolalia Foundation ("Licensor") and [Researcher/Institution Name] ("Licensee").
+1. Grant of License:
+
+Licensor grants Licensee a non-exclusive, royalty-free, confidential license solely for non-profit, ethical, scientific research purposes related to the provided Cosmolalia Foundation patent specifications ("Licensed Technology").
+2. Confidentiality:
+
+Licensee agrees to maintain strict confidentiality, not disclose Licensed Technology publicly, and limit access exclusively to trusted research team members.
+3. Non-Profit Use Restriction:
+
+Licensee explicitly agrees to restrict all use of Licensed Technology to non-commercial, non-profit research activities only.
+4. Ownership & IP Rights:
+
+Licensor retains full ownership and commercial rights. No rights beyond non-profit research use are granted.
+5. Ethical Commitment:
+
+Licensee explicitly commits to ethically-aligned, beneficial research consistent with Cosmolalia Foundation's principles and mission.
+6. Termination:
+
+Licensor may terminate this license immediately upon any breach of confidentiality, ethical guidelines, or unauthorized commercial use.
+Licensee Acceptance:
+
+Signature: _______________________
+Name: __________________________
+Date: ___________________________
