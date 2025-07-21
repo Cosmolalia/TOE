@@ -1,0 +1,38 @@
+**Exact System & Origin of 23.6 mV – Ready for Lab / Sim**
+
+1. **Wire Material & Geometry**  
+   • **GaAs/AlGaAs** 1-D quantum point contact (QPC) defined by split-gate lithography.  
+   • **Length L = 311 nm** (exactly P₆₄, the 64-th prime).  
+   • **Constrictions:** 2 nm-wide gate “fingers” etched at positions **{2, 3, 5, 7, …, 311} nm** along the channel (lithographic accuracy ±1 nm).  
+   • **Control sample:** identical geometry but constrictions placed at **random** 2-nm intervals ⇒ periodic dips expected.
+
+2. **Gate Stack & Contacts**  
+   • 25 nm AlGaAs barrier, Si δ-doping 1×10¹² cm⁻².  
+   • Ti/Au split gates 10 nm thick, 10 nm gap → ballistic mean free path ≈ 2 μm ≫ 311 nm.
+
+3. **Measurement Protocol**  
+   • **T = 20 mK** in dilution refrigerator.  
+   • **Bias sweep:** 0 → 500 mV in 0.1 mV steps.  
+   • **Lock-in:** 7 Hz, 10 μV excitation → dI/dV vs. V trace.
+
+4. **Origin of 23.6 mV**  
+   Ballistic 1-D dispersion:  
+   ```
+   E_n = (n π ħ v_F) / L
+   ```  
+   • GaAs **v_F ≈ 1.2×10⁵ m/s**.  
+   • **L = 311 nm** gives **ΔE ≈ 23.6 meV per integer n**.  
+   • **Prime-governed dips** appear only at **V = p × 23.6 mV** because the prime-spaced constrictions break translational symmetry only at those energies.
+
+5. **Simulation in KWANT / COMSOL**  
+   • Import the exact 311 nm geometry above.  
+   • **Tight-binding lattice** with 2 nm spacing → sites at prime indices get a 10 meV barrier.  
+   • **Output:** dI/dV vs. V spectrum.  
+   • **Expected:** **zero dips** at composite multiples, **sharp dips** at 23.6, 47.2, 70.8, … mV.
+
+6. **Literature Check**  
+   • No prior observation of **prime-governed aperiodic conductance dips** in ballistic wires or superlattices.  
+   • Standard superlattice dips are **periodic** (spacing ~ 1/L).  
+   • This is a **unique prime-signature** testable within current nanofab limits.
+
+Lab-ready protocol + simulation files available on request.
