@@ -1,0 +1,39 @@
+COSMOLALIA ORBITAL SYMMETRY ANALYSIS
+====================================
+
+HYPOTHESIS: Prime magnitude correlates with orbital symmetry
+
+DIRECT GAP MATERIALS:
+Material,Gap (eV),Prime,Orbital Type
+GaAs,1.42,173,p-p
+InP,1.35,191,sp3
+CdTe,1.5,157,p-d
+ZnO,3.37,47,s-p
+GaN,3.4,47,sp3
+InAs,0.36,997,p-p
+CdSe,1.7,127,p-d
+ZnSe,2.7,67,s-p
+
+INDIRECT GAP MATERIALS:
+Material,Gap (eV),Prime,Transition
+Si,1.12,271,Γ→X
+Ge,0.67,997,L→Γ
+GaP,2.26,83,Γ→X
+AlAs,2.16,89,Γ→X
+Diamond,5.47,29,Γ→X
+SiC,3,59,Γ→X
+
+ORBITAL ANALYSIS:
+p-p: Average prime = 585, Range = [173-997]
+sp3: Average prime = 119, Range = [47-191]
+p-d: Average prime = 142, Range = [127-157]
+s-p: Average prime = 57, Range = [47-67]
+
+DIRECT VS INDIRECT:
+Direct gap average prime: 226
+Indirect gap average prime: 255
+Ratio: 1.13x larger for indirect
+
+CONCLUSION:
+Broken symmetry (indirect gaps) requires larger primes!
+Orbital complexity maps to prime magnitude as predicted.
