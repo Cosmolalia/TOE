@@ -1,0 +1,127 @@
+Material,Gap_eV,Type,Reference
+Silicon,1.12,IV,Kittel
+Germanium,0.67,IV,Kittel
+Diamond,5.47,IV,Wikipedia
+Silicon Carbide 3C,2.36,IV,Ioffe
+Silicon Carbide 4H,3.23,IV,Ioffe
+Silicon Carbide 6H,3.00,IV,Ioffe
+Gallium Arsenide,1.42,III-V,Sze
+Gallium Phosphide,2.26,III-V,Sze
+Gallium Nitride,3.40,III-V,Wikipedia
+Gallium Antimonide,0.73,III-V,Ioffe
+Aluminum Arsenide,2.16,III-V,Adachi
+Aluminum Phosphide,2.45,III-V,Ioffe
+Aluminum Nitride,6.00,III-V,Wikipedia
+Aluminum Antimonide,1.60,III-V,Ioffe
+Indium Arsenide,0.36,III-V,Sze
+Indium Phosphide,1.35,III-V,Sze
+Indium Nitride,0.70,III-V,Wu2002
+Indium Antimonide,0.17,III-V,Ioffe
+Boron Nitride,5.96,III-V,Wikipedia
+Boron Phosphide,2.00,III-V,Kumashiro
+Zinc Oxide,3.37,II-VI,Ozgur2005
+Zinc Sulfide,3.68,II-VI,Aven1971
+Zinc Selenide,2.70,II-VI,Aven1971
+Zinc Telluride,2.25,II-VI,Aven1971
+Cadmium Sulfide,2.42,II-VI,Ninomiya1995
+Cadmium Selenide,1.70,II-VI,Ninomiya1995
+Cadmium Telluride,1.50,II-VI,Sze
+Mercury Sulfide,2.00,II-VI,Roberts1969
+Mercury Selenide,0.30,II-VI,Schmit1970
+Mercury Telluride,-0.15,II-VI,Schmit1970
+Magnesium Oxide,7.80,II-VI,Whited1973
+Lead Sulfide,0.41,IV-VI,Dalven1969
+Lead Selenide,0.27,IV-VI,Dalven1969
+Lead Telluride,0.31,IV-VI,Dalven1969
+Tin Sulfide,1.08,IV-VI,Albers1961
+Tin Selenide,0.90,IV-VI,Lefebvre1998
+Tin Telluride,0.18,IV-VI,Esaki1966
+Bismuth Sulfide,1.30,V-VI,Black1957
+Bismuth Selenide,0.35,V-VI,Mishra1997
+Bismuth Telluride,0.15,V-VI,Goldsmid2010
+Titanium Dioxide Rutile,3.00,Oxide,Tang1994
+Titanium Dioxide Anatase,3.20,Oxide,Tang1994
+Copper(I) Oxide,2.10,Oxide,Meyer2012
+Copper(II) Oxide,1.20,Oxide,Meyer2012
+Iron(II) Oxide,2.30,Oxide,Cornell2003
+Iron(III) Oxide,2.10,Oxide,Cornell2003
+Nickel Oxide,3.70,Oxide,Powell1970
+Tin(IV) Oxide,3.60,Oxide,Button1971
+Vanadium(IV) Oxide,0.70,Oxide,Goodenough1971
+Tungsten(VI) Oxide,2.70,Oxide,Granqvist1995
+Molybdenum(VI) Oxide,3.00,Oxide,Scanlon2010
+Chromium(III) Oxide,3.00,Oxide,Crawford1994
+Manganese Oxide,1.30,Oxide,Wells1971
+Cobalt Oxide,1.48,Oxide,Shinde2006
+Strontium Titanate,3.20,Oxide,vanBenthem2001
+Barium Titanate,3.20,Oxide,Wemple1970
+Lithium Niobate,3.78,Oxide,Wemple1968
+Gallium Indium Arsenide,0.75,Ternary,Adachi1982
+Aluminum Gallium Arsenide,1.42,Ternary,Casey1978
+Copper Indium Selenide,1.00,Ternary,Neumann1984
+Copper Gallium Selenide,1.68,Ternary,Neumann1984
+Copper Indium Gallium Selenide,1.15,Ternary,Wei1999
+Silver Gallium Selenide,1.80,Ternary,Yamamoto1997
+Cadmium Zinc Telluride,1.50,Ternary,Olego1985
+Mercury Cadmium Telluride,0.00,Ternary,Hansen1982
+Mercury Zinc Telluride,2.25,Ternary,Kinch2005
+Lead Tin Telluride,0.20,Ternary,Dimmock1966
+Indium Gallium Nitride,2.00,Ternary,Wu2002
+Aluminum Indium Nitride,4.00,Ternary,Wu2002
+Aluminum Gallium Nitride,3.40,Ternary,Ambacher1998
+Zinc Cadmium Sulfide,2.80,Ternary,Oladeji1997
+Molybdenum Disulfide,1.80,2D,Mak2010
+Molybdenum Diselenide,1.50,2D,Tongay2012
+Tungsten Disulfide,2.00,2D,Gutierrez2013
+Tungsten Diselenide,1.65,2D,Ross2013
+Molybdenum Ditelluride,1.00,2D,Ruppert2014
+Tungsten Ditelluride,0.70,2D,Ali2014
+Black Phosphorus,0.30,2D,Li2014
+Graphene,0.00,2D,Castro2009
+Hexagonal Boron Nitride,5.97,2D,Watanabe2004
+Germanium Selenide,1.00,2D,Mukherjee2013
+Germanium Sulfide,1.65,2D,Tan2015
+Tin Disulfide,2.20,2D,Burton2013
+Tin Diselenide,0.90,2D,Lefebvre1998_2D
+Hafnium Disulfide,2.00,2D,Kanazawa2016
+Hafnium Diselenide,1.30,2D,Aretouli2016
+Zirconium Disulfide,2.00,2D,Zhang2015
+Zirconium Diselenide,1.20,2D,Zhang2015
+Rhenium Disulfide,1.60,2D,Murray2013
+Rhenium Diselenide,1.50,2D,Corbet2015
+Methylammonium Lead Iodide,1.55,Perovskite,Green2014
+Methylammonium Lead Bromide,2.30,Perovskite,Noh2013
+Cesium Lead Bromide,2.30,Perovskite,Stoumpos2013
+Cesium Lead Iodide,1.73,Perovskite,Eperon2014
+Formamidinium Lead Iodide,1.43,Perovskite,Eperon2014
+Cesium Tin Iodide,1.30,Perovskite,Chung2012
+Methylammonium Tin Iodide,1.20,Perovskite,Noel2014
+Cesium Germanium Iodide,1.60,Perovskite,Krishnamoorthy2015
+Gallium Selenide,2.00,III-VI,Kuhn1975
+Indium Selenide,1.30,III-VI,Julien1985
+Gallium Telluride,1.65,III-VI,Kuhn1975
+Indium Telluride,1.00,III-VI,Julien1985
+Aluminum Selenide,2.90,III-VI,Larach1957
+Aluminum Telluride,2.00,III-VI,Larach1957
+Copper Sulfide,1.20,I-VI,Xu2000
+Copper Selenide,1.20,I-VI,Xu2000
+Silver Sulfide,0.90,I-VI,Junod1977
+Silver Selenide,0.15,I-VI,Junod1977
+Lithium Fluoride,14.20,Halide,Roessler1967
+Sodium Chloride,8.50,Halide,Roessler1965
+Potassium Bromide,7.40,Halide,Roessler1965
+Cesium Iodide,6.20,Halide,Roessler1965
+Silver Chloride,5.13,Halide,Moser1955
+Silver Bromide,4.27,Halide,Moser1955
+Thallium Bromide,2.68,Halide,Samara1981
+Thallium Chloride,3.40,Halide,Samara1981
+Silicon Nitride,5.00,Nitride,Robertson1991
+Aluminum Nitride,6.00,Nitride,Strite1992
+Gallium Nitride,3.40,Nitride,Strite1992
+Indium Nitride,0.70,Nitride,Wu2002
+Titanium Nitride,0.00,Nitride,metallic
+Tantalum Nitride,0.00,Nitride,metallic
+Chromium Nitride,0.00,Nitride,metallic
+Hafnium Nitride,0.00,Nitride,metallic
+Zirconium Nitride,0.00,Nitride,metallic
+Vanadium Nitride,0.00,Nitride,metallic
