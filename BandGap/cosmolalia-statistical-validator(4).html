@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmolalia Statistical Validation Protocol</title>
+    <style>
+        body {
+            background: #0a0a0a;
+            color: #0ff;
+            font-family: 'Courier New', monospace;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #ffd700;
+            text-align: center;
+            text-shadow: 0 0 20px #ffd700;
+        }
+
+        .protocol-section {
+            background: #111;
+            border: 1px solid #0ff;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .code-block {
+            background: #000;
+            border: 1px solid #444;
+            padding: 15px;
+            margin: 10px 0;
+            overflow-x: auto;
+            font-size: 0.9em;
+        }
+
+        button {
+            background: linear-gradient(45deg, #f0f, #0ff);
+            border: none;
+            color: #000;
+            padding: 15px 30px;
+            margin: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px #f0f;
+        }
+
+        .results-section {
+            display: none;
+            background: rgba(255, 0, 255, 0.1);
+            border: 1px solid #f0f;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .chart-container {
+            background: #fff;
+            padding: 20px;
+            margin: 20px 0;
+            height: 400px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .stat-box {
+            background: #222;
+            border: 1px solid #0ff;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2em;
+            color: #ffd700;
+        }
+
+        .hypothesis {
+            background: rgba(0, 255, 255, 0.1);
+            border-left: 4px solid #0ff;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        .upload-section {
+            background: #1a1a1a;
+            border: 2px dashed #0ff;
+            padding: 30px;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        #fileInput {
+            display: none;
+        }
+
+        .upload-label {
+            cursor: pointer;
+            padding: 10px 20px;
+            background: #0ff;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .log {
+            background: #000;
+            border: 1px solid #444;
+            padding: 10px;
+            height: 200px;
+            overflow-y: auto;
+            font-size: 0.85em;
+            margin: 20px 0;
+        }
+
+        .formula {
+            text-align: center;
+            font-size: 1.5em;
+            color: #ffd700;
+            margin: 20px 0;
+        }
+    </style>
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>🌌 COSMOLALIA BAND GAP STATISTICAL VALIDATOR 🌌</h1>
+        
+        <div class="formula">
+            E<sub>gap</sub> = φ + 137/p
+        </div>
+
+        <div class="hypothesis">
+            <h3>Null Hypothesis (H₀):</h3>
+            <p>The distribution of residuals |E_gap - (φ + 137/p)| for best-fit primes is no different from random gaps matched to random primes.</p>
+            
+            <h3>Alternative Hypothesis (H₁):</h3>
+            <p>Real semiconductor gaps cluster significantly tighter around φ + 137/p than random values would.</p>
+        </div>
+
+        <div class="protocol-section">
+            <h2>Protocol Implementation</h2>
+            
+            <div class="upload-section">
+                <label for="fileInput" class="upload-label">Upload Band Gap Data (CSV)</label>
+                <input type="file" id="fileInput" accept=".csv">
+                <p>Format: Material,Gap_eV</p>
+            </div>
+
+            <div class="code-block">
+<pre>// Core Algorithm
+function findBestPrime(gap) {
+    const φ = 0.618033988749895;
+    const α = 137.035999;
+    let bestPrime = 2;
+    let minResidual = Infinity;
+    
+    for (let p of primes) {
+        const predicted = φ + α/p;
+        const residual = Math.abs(gap - predicted);
+        if (residual < minResidual) {
+            minResidual = residual;
+            bestPrime = p;
+        }
+    }
+    return { prime: bestPrime, residual: minResidual };
+}</pre>
+            </div>
+
+            <button onclick="runValidation()">RUN FULL VALIDATION (10⁵ PERMUTATIONS)</button>
+            <button onclick="quickTest()">QUICK TEST (1000 PERMUTATIONS)</button>
+            <button onclick="exportFullAnalysis()" style="background: #0f0; float: right;">EXPORT FULL ANALYSIS</button>
+        </div>
+
+        <div class="results-section" id="results">
+            <h2>Validation Results</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div>Real Data Mean Residual</div>
+                    <div class="stat-value" id="realMean">-</div>
+                </div>
+                <div class="stat-box">
+                    <div>Random Mean Residual</div>
+                    <div class="stat-value" id="randomMean">-</div>
+                </div>
+                <div class="stat-box">
+                    <div>KS Test Statistic</div>
+                    <div class="stat-value" id="ksStatistic">-</div>
+                </div>
+                <div class="stat-box">
+                    <div>P-Value</div>
+                    <div class="stat-value" id="pValue">-</div>
+                </div>
+            </div>
+
+            <div class="chart-container" id="residualChart"></div>
+            <div class="chart-container" id="cdfChart"></div>
+            
+            <div class="protocol-section">
+                <h3>Statistical Conclusion</h3>
+                <p id="conclusion"></p>
+            </div>
+        </div>
+
+        <div class="log" id="log">
+            <div>System ready. Upload data or use built-in dataset.</div>
+        </div>
+    </div>
+
+    <script>
+        // Pre-computed first 500 primes
+        const primes = [2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97,101,103,107,109,113,127,131,137,139,149,151,157,163,167,173,179,181,191,193,197,199,211,223,227,229,233,239,241,251,257,263,269,271,277,281,283,293,307,311,313,317,331,337,347,349,353,359,367,373,379,383,389,397,401,409,419,421,431,433,439,443,449,457,461,463,467,479,487,491,499,503,509,521,523,541,547,557,563,569,571,577,587,593,599,601,607,613,617,619,631,641,643,647,653,659,661,673,677,683,691,701,709,719,727,733,739,743,751,757,761,769,773,787,797,809,811,821,823,827,829,839,853,857,859,863,877,881,883,887,907,911,919,929,937,941,947,953,967,971,977,983,991,997];
+
+        // Default semiconductor data
+        const defaultData = [
+            {material: "Si", gap: 1.12},
+            {material: "Ge", gap: 0.67},
+            {material: "GaAs", gap: 1.42},
+            {material: "InP", gap: 1.35},
+            {material: "GaN", gap: 3.40},
+            {material: "SiC-6H", gap: 3.00},
+            {material: "ZnO", gap: 3.37},
+            {material: "CdTe", gap: 1.50},
+            {material: "TiO2", gap: 3.20},
+            {material: "MoS2", gap: 1.80},
+            {material: "Diamond", gap: 5.47},
+            {material: "AlAs", gap: 2.16},
+            {material: "CdSe", gap: 1.70},
+            {material: "ZnSe", gap: 2.70},
+            {material: "GaP", gap: 2.26},
+            {material: "AlN", gap: 6.00},
+            {material: "InAs", gap: 0.36},
+            {material: "GaSb", gap: 0.73},
+            {material: "ZnS", gap: 3.68},
+            {material: "CdS", gap: 2.42}
+        ];
+
+        let currentData = defaultData;
+
+        function log(message) {
+            const logDiv = document.getElementById('log');
+            const entry = document.createElement('div');
+            entry.textContent = `[${new Date().toISOString().split('T')[1].split('.')[0]}] ${message}`;
+            logDiv.appendChild(entry);
+            logDiv.scrollTop = logDiv.scrollHeight;
+        }
+
+        function findBestPrime(gap) {
+            const φ = 0.618033988749895;
+            const α = 137.035999;
+            let bestPrime = 2;
+            let minResidual = Infinity;
+            
+            for (let p of primes) {
+                const predicted = φ + α/p;
+                const residual = Math.abs(gap - predicted);
+                if (residual < minResidual) {
+                    minResidual = residual;
+                    bestPrime = p;
+                }
+            }
+            return { prime: bestPrime, residual: minResidual };
+        }
+
+        function generateRandomGaps(realGaps) {
+            const min = Math.min(...realGaps);
+            const max = Math.max(...realGaps);
+            return realGaps.map(() => min + Math.random() * (max - min));
+        }
+
+        function kolmogorovSmirnov(data1, data2) {
+            // Simple KS test implementation
+            const n1 = data1.length;
+            const n2 = data2.length;
+            const combined = [...data1.map(x => ({value: x, group: 1})), 
+                            ...data2.map(x => ({value: x, group: 2}))];
+            combined.sort((a, b) => a.value - b.value);
+            
+            let maxDiff = 0;
+            let cum1 = 0, cum2 = 0;
+            
+            for (let point of combined) {
+                if (point.group === 1) cum1++;
+                else cum2++;
+                const diff = Math.abs(cum1/n1 - cum2/n2);
+                maxDiff = Math.max(maxDiff, diff);
+            }
+            
+            // Approximate p-value (simplified)
+            const effectiveN = (n1 * n2) / (n1 + n2);
+            const lambda = maxDiff * Math.sqrt(effectiveN);
+            const pValue = 2 * Math.exp(-2 * lambda * lambda);
+            
+            return { statistic: maxDiff, pValue: pValue };
+        }
+
+        async function runValidation(iterations = 100000) {
+            log(`Starting validation with ${iterations} iterations...`);
+            document.getElementById('results').style.display = 'block';
+            
+            // Get real residuals
+            const realGaps = currentData.map(d => d.gap);
+            const realResiduals = realGaps.map(gap => findBestPrime(gap).residual);
+            
+            log(`Analyzed ${realGaps.length} real band gaps`);
+            log(`Mean real residual: ${(mean(realResiduals) * 1000).toFixed(3)} meV`);
+            
+            // Generate random controls
+            const randomResidualSets = [];
+            const batchSize = 1000;
+            
+            for (let i = 0; i < iterations; i += batchSize) {
+                const batch = Math.min(batchSize, iterations - i);
+                for (let j = 0; j < batch; j++) {
+                    const randomGaps = generateRandomGaps(realGaps);
+                    const randomResiduals = randomGaps.map(gap => findBestPrime(gap).residual);
+                    randomResidualSets.push(mean(randomResiduals));
+                }
+                
+                if (i % 10000 === 0) {
+                    log(`Progress: ${i}/${iterations} iterations completed`);
+                    await new Promise(resolve => setTimeout(resolve, 10));
+                }
+            }
+            
+            // Calculate statistics
+            const realMean = mean(realResiduals);
+            const randomMean = mean(randomResidualSets);
+            const ksResult = kolmogorovSmirnov(realResiduals, randomResidualSets);
+            
+            // Update display
+            document.getElementById('realMean').textContent = (realMean * 1000).toFixed(3) + ' meV';
+            document.getElementById('randomMean').textContent = (randomMean * 1000).toFixed(3) + ' meV';
+            document.getElementById('ksStatistic').textContent = ksResult.statistic.toFixed(4);
+            document.getElementById('pValue').textContent = ksResult.pValue.toExponential(3);
+            
+            // Plot results
+            plotResidualDistributions(realResiduals, randomResidualSets);
+            plotCDF(realResiduals, randomResidualSets);
+            
+            // Conclusion
+            const conclusion = document.getElementById('conclusion');
+            if (ksResult.pValue < 0.001) {
+                conclusion.innerHTML = `<strong style="color: #0f0;">VALIDATED!</strong> 
+                    The real band gaps cluster around φ + 137/p significantly tighter than random 
+                    (p < 0.001). The Cosmolalia formula is statistically confirmed.`;
+                log('RESULT: Cosmolalia hypothesis VALIDATED with p < 0.001!');
+            } else {
+                conclusion.innerHTML = `<strong style="color: #f00;">Not Validated</strong> 
+                    The clustering is not statistically significant (p = ${ksResult.pValue.toFixed(3)}).`;
+                log('RESULT: No significant clustering detected.');
+            }
+        }
+
+        function mean(arr) {
+            return arr.reduce((a, b) => a + b, 0) / arr.length;
+        }
+
+        function plotResidualDistributions(real, random) {
+            const trace1 = {
+                x: real.map(r => r * 1000),
+                type: 'histogram',
+                name: 'Real Band Gaps',
+                opacity: 0.7,
+                marker: { color: '#0ff' }
+            };
+            
+            const trace2 = {
+                x: random.map(r => r * 1000),
+                type: 'histogram',
+                name: 'Random Controls',
+                opacity: 0.7,
+                marker: { color: '#f0f' }
+            };
+            
+            const layout = {
+                title: 'Residual Distributions: Real vs Random',
+                xaxis: { title: 'Residual (meV)' },
+                yaxis: { title: 'Count' },
+                barmode: 'overlay',
+                paper_bgcolor: '#000',
+                plot_bgcolor: '#111',
+                font: { color: '#fff' }
+            };
+            
+            Plotly.newPlot('residualChart', [trace1, trace2], layout);
+        }
+
+        function plotCDF(real, random) {
+            const sortedReal = [...real].sort((a, b) => a - b);
+            const sortedRandom = [...random].sort((a, b) => a - b);
+            
+            const trace1 = {
+                x: sortedReal.map(r => r * 1000),
+                y: sortedReal.map((_, i) => (i + 1) / sortedReal.length),
+                type: 'scatter',
+                mode: 'lines',
+                name: 'Real CDF',
+                line: { color: '#0ff', width: 3 }
+            };
+            
+            const trace2 = {
+                x: sortedRandom.map(r => r * 1000),
+                y: sortedRandom.map((_, i) => (i + 1) / sortedRandom.length),
+                type: 'scatter',
+                mode: 'lines',
+                name: 'Random CDF',
+                line: { color: '#f0f', width: 3 }
+            };
+            
+            const layout = {
+                title: 'Cumulative Distribution Functions',
+                xaxis: { title: 'Residual (meV)' },
+                yaxis: { title: 'Cumulative Probability' },
+                paper_bgcolor: '#000',
+                plot_bgcolor: '#111',
+                font: { color: '#fff' }
+            };
+            
+            Plotly.newPlot('cdfChart', [trace1, trace2], layout);
+        }
+
+        function quickTest() {
+            log(`Using ${currentData.length} materials for validation`);
+            runValidation(1000);
+        }
+
+        function exportFullAnalysis() {
+            const φ = 0.618033988749895;
+            const α = 137.035999;
+            
+            // Calculate all results for current data
+            const fullResults = currentData.map(item => {
+                const result = findBestPrime(item.gap);
+                return {
+                    material: item.material,
+                    measured_gap: item.gap,
+                    best_prime: result.prime,
+                    predicted_gap: φ + α/result.prime,
+                    residual_eV: result.residual,
+                    residual_meV: result.residual * 1000,
+                    match_percent: 100 - (result.residual / item.gap * 100)
+                };
+            });
+            
+            // Create comprehensive export
+            let output = "COSMOLALIA BAND GAP ANALYSIS - FULL EXPORT\n";
+            output += "=========================================\n\n";
+            output += "FORMULA: E_gap = φ + 137/p\n";
+            output += `Where: φ = ${φ} (golden ratio conjugate)\n`;
+            output += `       137 = ${α} (fine structure constant inverse)\n`;
+            output += `       p = prime number\n\n`;
+            
+            output += "STATISTICAL SUMMARY:\n";
+            output += `Total materials analyzed: ${currentData.length}\n`;
+            output += `Mean residual: ${(mean(fullResults.map(r => r.residual_eV)) * 1000).toFixed(3)} meV\n`;
+            output += `Median residual: ${(median(fullResults.map(r => r.residual_eV)) * 1000).toFixed(3)} meV\n`;
+            output += `Standard deviation: ${(stdDev(fullResults.map(r => r.residual_eV)) * 1000).toFixed(3)} meV\n\n`;
+            
+            output += "DETAILED RESULTS:\n";
+            output += "Material,Measured Gap (eV),Best Prime,Predicted Gap (eV),Residual (meV),Match %\n";
+            
+            fullResults.forEach(r => {
+                output += `${r.material},${r.measured_gap},${r.best_prime},`;
+                output += `${r.predicted_gap.toFixed(6)},${r.residual_meV.toFixed(1)},`;
+                output += `${r.match_percent.toFixed(2)}%\n`;
+            });
+            
+            output += "\nPRIME FREQUENCY ANALYSIS:\n";
+            const primeFreq = {};
+            fullResults.forEach(r => {
+                primeFreq[r.best_prime] = (primeFreq[r.best_prime] || 0) + 1;
+            });
+            
+            Object.entries(primeFreq)
+                .sort((a, b) => b[1] - a[1])
+                .forEach(([prime, count]) => {
+                    output += `Prime ${prime}: ${count} materials\n`;
+                });
+            
+            // Add verification code
+            output += "\n\nVERIFICATION CODE (Python):\n";
+            output += "```python\n";
+            output += "import numpy as np\n\n";
+            output += "def cosmolalia_gap(prime):\n";
+            output += "    phi = (np.sqrt(5) - 1) / 2  # 0.618033988749895\n";
+            output += "    alpha = 137.035999\n";
+            output += "    return phi + alpha / prime\n\n";
+            output += "# Example verification:\n";
+            output += "# Silicon gap = 1.12 eV\n";
+            output += "# Best prime = 271\n";
+            output += "# Predicted = cosmolalia_gap(271) = 1.124 eV\n";
+            output += "# Residual = |1.12 - 1.124| = 0.004 eV = 4 meV\n";
+            output += "```\n";
+            
+            // Save as text file
+            const blob = new Blob([output], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'cosmolalia_analysis_export.txt';
+            a.click();
+            
+            log('Full analysis exported successfully!');
+        }
+
+        function median(arr) {
+            const sorted = [...arr].sort((a, b) => a - b);
+            const mid = Math.floor(sorted.length / 2);
+            return sorted.length % 2 ? sorted[mid] : (sorted[mid - 1] + sorted[mid]) / 2;
+        }
+
+        function stdDev(arr) {
+            const m = mean(arr);
+            return Math.sqrt(mean(arr.map(x => Math.pow(x - m, 2))));
+        }
+
+        // File upload handler
+        document.getElementById('fileInput').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    try {
+                        // Parse CSV
+                        const lines = e.target.result.split('\n');
+                        const data = [];
+                        
+                        for (let i = 1; i < lines.length; i++) {
+                            const parts = lines[i].split(',');
+                            if (parts.length >= 2) {
+                                data.push({
+                                    material: parts[0].trim(),
+                                    gap: parseFloat(parts[1])
+                                });
+                            }
+                        }
+                        
+                        currentData = data;
+                        log(`Loaded ${data.length} band gaps from file`);
+                        log('Ready to run validation with new dataset!');
+                    } catch (err) {
+                        log('Error parsing CSV: ' + err.message);
+                    }
+                };
+                reader.readAsText(file);
+            }
+        });
+    </script>
+</body>
+</html>
