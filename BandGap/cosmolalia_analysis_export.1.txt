@@ -1,0 +1,197 @@
+COSMOLALIA BAND GAP ANALYSIS - FULL EXPORT
+=========================================
+
+FORMULA: E_gap = φ + 137/p
+Where: φ = 0.618033988749895 (golden ratio conjugate)
+       137 = 137.035999 (fine structure constant inverse)
+       p = prime number
+
+STATISTICAL SUMMARY:
+Total materials analyzed: 126
+Mean residual: 162.847 meV
+Median residual: 30.930 meV
+Standard deviation: 256.914 meV
+
+DETAILED RESULTS:
+Material,Measured Gap (eV),Best Prime,Predicted Gap (eV),Residual (meV),Match %
+Silicon,1.12,271,1.123702,3.7,99.67%
+Germanium,0.67,997,0.755482,85.5,87.24%
+Diamond,5.47,29,5.343413,126.6,97.69%
+Silicon Carbide 3C,2.36,79,2.352667,7.3,99.69%
+Silicon Carbide 4H,3.23,53,3.203619,26.4,99.18%
+Silicon Carbide 6H,3,59,2.940678,59.3,98.02%
+Gallium Arsenide,1.42,173,1.410150,9.9,99.31%
+Gallium Phosphide,2.26,83,2.269070,9.1,99.60%
+Gallium Nitride,3.4,47,3.533694,133.7,96.07%
+Gallium Antimonide,0.73,997,0.755482,25.5,96.51%
+Aluminum Arsenide,2.16,89,2.157764,2.2,99.90%
+Aluminum Phosphide,2.45,73,2.495239,45.2,98.15%
+Aluminum Nitride,6,23,6.576121,576.1,90.40%
+Aluminum Antimonide,1.6,139,1.603904,3.9,99.76%
+Indium Arsenide,0.36,997,0.755482,395.5,-9.86%
+Indium Phosphide,1.35,191,1.335500,14.5,98.93%
+Indium Nitride,0.7,997,0.755482,55.5,92.07%
+Indium Antimonide,0.17,997,0.755482,585.5,-244.40%
+Boron Nitride,5.96,23,6.576121,616.1,89.66%
+Boron Phosphide,2,101,1.974826,25.2,98.74%
+Zinc Oxide,3.37,47,3.533694,163.7,95.14%
+Zinc Sulfide,3.68,43,3.804918,124.9,96.61%
+Zinc Selenide,2.7,67,2.663347,36.7,98.64%
+Zinc Telluride,2.25,83,2.269070,19.1,99.15%
+Cadmium Sulfide,2.42,79,2.352667,67.3,97.22%
+Cadmium Selenide,1.7,127,1.697058,2.9,99.83%
+Cadmium Telluride,1.5,157,1.490875,9.1,99.39%
+Mercury Sulfide,2,101,1.974826,25.2,98.74%
+Mercury Selenide,0.3,997,0.755482,455.5,-51.83%
+Mercury Telluride,-0.15,997,0.755482,905.5,703.65%
+Magnesium Oxide,7.8,19,7.830455,30.5,99.61%
+Lead Sulfide,0.41,997,0.755482,345.5,15.74%
+Lead Selenide,0.27,997,0.755482,485.5,-79.81%
+Lead Telluride,0.31,997,0.755482,445.5,-43.70%
+Tin Sulfide,1.08,293,1.085734,5.7,99.47%
+Tin Selenide,0.9,487,0.899422,0.6,99.94%
+Tin Telluride,0.18,997,0.755482,575.5,-219.71%
+Bismuth Sulfide,1.3,199,1.306657,6.7,99.49%
+Bismuth Selenide,0.35,997,0.755482,405.5,-15.85%
+Bismuth Telluride,0.15,997,0.755482,605.5,-303.65%
+Titanium Dioxide Rutile,3,59,2.940678,59.3,98.02%
+Titanium Dioxide Anatase,3.2,53,3.203619,3.6,99.89%
+Copper(I) Oxide,2.1,89,2.157764,57.8,97.25%
+Copper(II) Oxide,1.2,233,1.206171,6.2,99.49%
+Iron(II) Oxide,2.3,83,2.269070,30.9,98.66%
+Iron(III) Oxide,2.1,89,2.157764,57.8,97.25%
+Nickel Oxide,3.7,43,3.804918,104.9,97.16%
+Tin(IV) Oxide,3.6,47,3.533694,66.3,98.16%
+Vanadium(IV) Oxide,0.7,997,0.755482,55.5,92.07%
+Tungsten(VI) Oxide,2.7,67,2.663347,36.7,98.64%
+Molybdenum(VI) Oxide,3,59,2.940678,59.3,98.02%
+Chromium(III) Oxide,3,59,2.940678,59.3,98.02%
+Manganese Oxide,1.3,199,1.306657,6.7,99.49%
+Cobalt Oxide,1.48,157,1.490875,10.9,99.27%
+Strontium Titanate,3.2,53,3.203619,3.6,99.89%
+Barium Titanate,3.2,53,3.203619,3.6,99.89%
+Lithium Niobate,3.78,43,3.804918,24.9,99.34%
+Gallium Indium Arsenide,0.75,997,0.755482,5.5,99.27%
+Aluminum Gallium Arsenide,1.42,173,1.410150,9.9,99.31%
+Copper Indium Selenide,1,359,0.999750,0.3,99.97%
+Copper Gallium Selenide,1.68,131,1.664110,15.9,99.05%
+Copper Indium Gallium Selenide,1.15,257,1.151248,1.2,99.89%
+Silver Gallium Selenide,1.8,113,1.830742,30.7,98.29%
+Cadmium Zinc Telluride,1.5,157,1.490875,9.1,99.39%
+Mercury Cadmium Telluride,0,997,0.755482,755.5,-Infinity%
+Mercury Zinc Telluride,2.25,83,2.269070,19.1,99.15%
+Lead Tin Telluride,0.2,997,0.755482,555.5,-177.74%
+Indium Gallium Nitride,2,101,1.974826,25.2,98.74%
+Aluminum Indium Nitride,4,41,3.960375,39.6,99.01%
+Aluminum Gallium Nitride,3.4,47,3.533694,133.7,96.07%
+Zinc Cadmium Sulfide,2.8,61,2.864526,64.5,97.70%
+Molybdenum Disulfide,1.8,113,1.830742,30.7,98.29%
+Molybdenum Diselenide,1.5,157,1.490875,9.1,99.39%
+Tungsten Disulfide,2,101,1.974826,25.2,98.74%
+Tungsten Diselenide,1.65,131,1.664110,14.1,99.14%
+Molybdenum Ditelluride,1,359,0.999750,0.3,99.97%
+Tungsten Ditelluride,0.7,997,0.755482,55.5,92.07%
+Black Phosphorus,0.3,997,0.755482,455.5,-51.83%
+Graphene,0,997,0.755482,755.5,-Infinity%
+Hexagonal Boron Nitride,5.97,23,6.576121,606.1,89.85%
+Germanium Selenide,1,359,0.999750,0.3,99.97%
+Germanium Sulfide,1.65,131,1.664110,14.1,99.14%
+Tin Disulfide,2.2,89,2.157764,42.2,98.08%
+Tin Diselenide,0.9,487,0.899422,0.6,99.94%
+Hafnium Disulfide,2,101,1.974826,25.2,98.74%
+Hafnium Diselenide,1.3,199,1.306657,6.7,99.49%
+Zirconium Disulfide,2,101,1.974826,25.2,98.74%
+Zirconium Diselenide,1.2,233,1.206171,6.2,99.49%
+Rhenium Disulfide,1.6,139,1.603904,3.9,99.76%
+Rhenium Diselenide,1.5,157,1.490875,9.1,99.39%
+Methylammonium Lead Iodide,1.55,149,1.537739,12.3,99.21%
+Methylammonium Lead Bromide,2.3,83,2.269070,30.9,98.66%
+Cesium Lead Bromide,2.3,83,2.269070,30.9,98.66%
+Cesium Lead Iodide,1.73,127,1.697058,32.9,98.10%
+Formamidinium Lead Iodide,1.43,167,1.438609,8.6,99.40%
+Cesium Tin Iodide,1.3,199,1.306657,6.7,99.49%
+Methylammonium Tin Iodide,1.2,233,1.206171,6.2,99.49%
+Cesium Germanium Iodide,1.6,139,1.603904,3.9,99.76%
+Gallium Selenide,2,101,1.974826,25.2,98.74%
+Indium Selenide,1.3,199,1.306657,6.7,99.49%
+Gallium Telluride,1.65,131,1.664110,14.1,99.14%
+Indium Telluride,1,359,0.999750,0.3,99.97%
+Aluminum Selenide,2.9,61,2.864526,35.5,98.78%
+Aluminum Telluride,2,101,1.974826,25.2,98.74%
+Copper Sulfide,1.2,233,1.206171,6.2,99.49%
+Copper Selenide,1.2,233,1.206171,6.2,99.49%
+Silver Sulfide,0.9,487,0.899422,0.6,99.94%
+Silver Selenide,0.15,997,0.755482,605.5,-303.65%
+Lithium Fluoride,14.2,11,13.075852,1124.1,92.08%
+Sodium Chloride,8.5,17,8.678975,179.0,97.89%
+Potassium Bromide,7.4,19,7.830455,430.5,94.18%
+Cesium Iodide,6.2,23,6.576121,376.1,93.93%
+Silver Chloride,5.13,31,5.038550,91.4,98.22%
+Silver Bromide,4.27,37,4.321710,51.7,98.79%
+Thallium Bromide,2.68,67,2.663347,16.7,99.38%
+Thallium Chloride,3.4,47,3.533694,133.7,96.07%
+Silicon Nitride,5,31,5.038550,38.6,99.23%
+Aluminum Nitride,6,23,6.576121,576.1,90.40%
+Gallium Nitride,3.4,47,3.533694,133.7,96.07%
+Indium Nitride,0.7,997,0.755482,55.5,92.07%
+Titanium Nitride,0,997,0.755482,755.5,-Infinity%
+Tantalum Nitride,0,997,0.755482,755.5,-Infinity%
+Chromium Nitride,0,997,0.755482,755.5,-Infinity%
+Hafnium Nitride,0,997,0.755482,755.5,-Infinity%
+Zirconium Nitride,0,997,0.755482,755.5,-Infinity%
+Vanadium Nitride,0,997,0.755482,755.5,-Infinity%
+
+PRIME FREQUENCY ANALYSIS:
+Prime 997: 28 materials
+Prime 101: 8 materials
+Prime 47: 6 materials
+Prime 83: 6 materials
+Prime 23: 5 materials
+Prime 157: 5 materials
+Prime 199: 5 materials
+Prime 233: 5 materials
+Prime 53: 4 materials
+Prime 59: 4 materials
+Prime 89: 4 materials
+Prime 131: 4 materials
+Prime 359: 4 materials
+Prime 43: 3 materials
+Prime 67: 3 materials
+Prime 139: 3 materials
+Prime 487: 3 materials
+Prime 19: 2 materials
+Prime 31: 2 materials
+Prime 61: 2 materials
+Prime 79: 2 materials
+Prime 113: 2 materials
+Prime 127: 2 materials
+Prime 173: 2 materials
+Prime 11: 1 materials
+Prime 17: 1 materials
+Prime 29: 1 materials
+Prime 37: 1 materials
+Prime 41: 1 materials
+Prime 73: 1 materials
+Prime 149: 1 materials
+Prime 167: 1 materials
+Prime 191: 1 materials
+Prime 257: 1 materials
+Prime 271: 1 materials
+Prime 293: 1 materials
+
+
+VERIFICATION CODE (Python):
+```python
+import numpy as np
+
+def cosmolalia_gap(prime):
+    phi = (np.sqrt(5) - 1) / 2  # 0.618033988749895
+    alpha = 137.035999
+    return phi + alpha / prime
+
+# Example verification:
+# Silicon gap = 1.12 eV
+# Best prime = 271
+# Predicted = cosmolalia_gap(271) = 1.124 eV
+# Residual = |1.12 - 1.124| = 0.004 eV = 4 meV
+```
