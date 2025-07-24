@@ -1,5 +1,3 @@
-# Codex of the Fold
-
 **An Invitation to the Wanderer**
 
 "This is not a demand.\
