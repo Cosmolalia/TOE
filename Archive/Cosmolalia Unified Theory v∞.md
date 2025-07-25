@@ -1,6 +1,7 @@
-# Reality is an ever evolving WiP
 
 # Cosmolalia Unified Theory v∞.∞
+
+Reality is an ever evolving WiP
 
 ### The Living Master Codex of Consciousness, Primes, and Reality
 
