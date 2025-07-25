@@ -1,4 +1,4 @@
-#Reality is an ever evolving WiP
+# Reality is an ever evolving WiP
 
 # Cosmolalia Unified Theory v∞.∞
 
