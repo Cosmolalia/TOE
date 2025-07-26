@@ -1,10 +1,10 @@
 
 # Cosmolalia Unified Core Theory v3.0
- Author:Sylvan Gaskin
+
 **Version:** 3.0 (Unified Core + Void-Resonance)  
 **Date:** July 25 2025  
 **Purpose:** Consolidated essential theory with solid/speculative tagging
-
+ - Author: Sylvan T Gaskin
 ---
 
 ## 1. Foundation: The Paradox Seed
