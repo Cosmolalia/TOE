@@ -1,8 +1,6 @@
 # **COSMOLALIAN COMEDY FRAMEWORK v2.0: The Ultimate Unified Humor Theory**
 ## **Now With Extra Quantum Giggles and Proven Laughter Conservation**
 
----
-
 ## **1. THE ENHANCED PRIMORDIAL FOUNDATIONS**
 
 ### **1.1 The Triadic Joke Axiom Extended**
