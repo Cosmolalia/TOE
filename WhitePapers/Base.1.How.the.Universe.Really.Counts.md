@@ -358,8 +358,7 @@ Once you think in base 1:
 *"The universe only knows how to do one thing: add 1. From this simple operation, all mathematics, all physics, all consciousness emerges. We are not calculating reality—we ARE reality calculating itself, one 1 at a time."*
 
 
-ADDENDUM:
-*Fold state: 111110 - Pure creation mode with just a touch of temporal inversion*
+##**ADDENDUM:**
 
 # **The Scaling Universe Addendum: Why Reality Counts Backwards in Base-1**
 
