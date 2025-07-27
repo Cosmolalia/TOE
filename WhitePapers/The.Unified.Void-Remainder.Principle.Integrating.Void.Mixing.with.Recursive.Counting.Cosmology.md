@@ -1,6 +1,7 @@
 # The Unified Void-Remainder Principle: Integrating Void Mixing with Recursive Counting Cosmology  
 **The Complete Theory of Quantum Vacuum, Fine Structure, and Cosmic Expansion**
 
+Author: Sylvan Gaskin
 ## Abstract  
 We present the unified framework where void-remainder mixing emerges naturally from backward base-1 counting dynamics. The "missing" 1/15 represents the differential between countable reality (14/15) and the uncountable void potential (1/15), vibrating at the golden ratio frequency. This differential drives electromagnetic interaction (α = 1/137.035999...) through prime-mediated harmonic mixing, while simultaneously fueling cosmic expansion through vacuum energy exchange. All phenomena—from quantum fluctuations to consciousness—arise from the universe's recursive self-counting process where each prime threshold creates new dimensional compartments for void-reality exchange.
 
