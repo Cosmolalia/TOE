@@ -84,7 +84,7 @@ Universe: "I literally can't"
 
 ## 8. Experimental Verification
 
-1. Count to 100
+1. Count using the harmonic wave (ball) sieve to 200
 2. Color squares
 3. See primes
 4. Notice 137 is weird
