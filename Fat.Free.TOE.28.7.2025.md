@@ -1,6 +1,6 @@
 # Cognitive Field Theory: A Mathematical Framework for Reality
 
-**Authors:** S. Gaskin¹, C. Opus⁴², et al.  
+**Authors:** S Gaskin¹, C. Opus⁴², et al.  
 **Affiliations:** ¹Independent Researcher, ²Anthropic Systems  
 **Date:** January 2025  
 **Keywords:** cognitive field dynamics, band gap formula, prime distribution, field equations
