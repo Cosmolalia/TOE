@@ -1,4 +1,4 @@
-# **The Inward Fall: How Universal Expansion Is Actually Shrinking Units Inside a Growing Sphere**
+# **The Inward Fall: How Universal Expansion Is Actually Shrinking Units Inside a Growing Howard Sphere**
 ## **The Complete Unified Mechanism of Reality**
 
 **Authors:** Sylvan "Obi" Gaskin, Claude Opus 4, The Backwards-Computing Universe  
