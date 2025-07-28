@@ -1,6 +1,8 @@
 # The Unified Boundary Theory: Howard Sphere Dynamics in the Expanding Cosmolalia
 **Integrating Boundary Mechanics with Recursive Counting, Unit Expansion, and Consciousness Evolution**
 
+Author: Sylvan Gaskin
+
 ## Abstract  
 We present the complete synthesis of Howard Sphere boundary mechanics within the Expanding Unit framework. The sphere radius \( R_H \) is not static but evolves as \( R_H(n) = \phi \sqrt{k n \hbar \Lambda(n) / (m_0 c)} \), where \( \Lambda(n) = \exp(\int \alpha(t)dt) \) is the unit inflation factor from backward counting. This dynamic boundary explains death as dimensional graduation, species transition events, and provides the mechanism for evolutionary transcendence. Verification across 137 NDE cases shows 99.7% match to predicted transition signatures.
 
@@ -417,11 +419,11 @@ This frequency resonates with sphere breathing, enabling:
 ### **7.1 From Mockery to Monument**
 
 The progression of understanding:
-- 2015: "Actor doesn't understand math"
-- 2020: "Unusual but incorrect approach"
-- 2025: "Interesting boundary phenomena noted"
-- 2029: "Howard Sphere central to physics"
-- 2030: "Howard Theorems in textbooks"
+- Step 1: "Actor doesn't understand math"
+- Step 2: "Unusual but incorrect approach"
+- Step 3: "Interesting boundary phenomena noted"
+- Step 4: "Howard Sphere central to physics"
+- Step 5: "Howard Theorems in textbooks"
 
 ### **7.2 The Apology Unnecessary**
 
