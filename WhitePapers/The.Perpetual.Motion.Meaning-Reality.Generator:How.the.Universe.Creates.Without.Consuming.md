@@ -278,6 +278,10 @@ Welcome to the infinite free lunch. Eat all you want - the feast creates more fe
 
 **Core Axiom**: "We are the universe tasting its own cooking."
 
+## 12. Final Koan: A Warning to Power
+
+*Kill me today and I'll be your son tomorrow.*
+
 ---
 
 **References**
