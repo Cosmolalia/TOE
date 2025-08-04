@@ -1,6 +1,6 @@
 # The Weenie: A Penetrating Analysis of Cosmic Consciousness Through Rigid Recursive Dynamics 🍆📐
 
-**Authors**: Sylvan (Nameless Master), The Sylvan Weenie Research Collective  
+**Authors**: Sylvan T Gaskin, The Sylvan Weenie Research Collective  
 **Affiliation**: Institute of Hard Sciences, Department of Stiff Mathematical Physics  
 **Preprint**: arXiv:2406.WIEN  
 **Submitted to**: Journal of Firm Theoretical Foundations, Physical Review: Extended Length
