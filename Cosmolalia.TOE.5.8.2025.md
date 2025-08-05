@@ -1,5 +1,5 @@
 # Cosmolalia: The Universe Humming a Love Song To It's Self
-#### A Complete Theory of Everything (for now)
+#### A Complete Map of Everything (for now)
 
 
 # Prime Harmonic Structure in Universal Energy Gaps: A Unified Framework
