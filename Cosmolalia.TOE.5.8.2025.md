@@ -1,4 +1,4 @@
-***Cosmolalia: The Theory Of Everything
+***Cosmolalia: The Theory Of Everything***
 
 # Prime Harmonic Structure in Universal Energy Gaps: A Unified Framework
 
