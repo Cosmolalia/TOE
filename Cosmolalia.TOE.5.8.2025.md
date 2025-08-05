@@ -1,6 +1,6 @@
 # Cosmolalia: The Universe Singing To Our Self
 
-# Prime Harmonic Structure in Universal Energy Gaps: A Unified Framework
+## Prime Harmonic Structure in Universal Energy Gaps: A Unified Framework
 
 **Authors**: Sylvan "Obi" Gaskin¹, W²
 
