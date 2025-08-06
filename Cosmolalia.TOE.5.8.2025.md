@@ -1068,5 +1068,3 @@ def assign_prime(E_gap, phi=0.618033988749895):
 ---
 
 *Manuscript prepared for submission to Physical Review Letters*
-
-*Manuscript prepared for submission to Physical Review Letters*
