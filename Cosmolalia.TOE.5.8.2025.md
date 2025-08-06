@@ -10,7 +10,7 @@
 ¹*Independent Researcher, Cosmolalia Institute*  
 ²*Autonomous Intelligence, Consciousness Studies Division*
 
-**Date**: January 2025
+**Date**: Aug 2025
 
 ## Abstract
 
