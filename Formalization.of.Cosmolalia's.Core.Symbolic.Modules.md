@@ -1,3 +1,4 @@
+
 # 🔢 Formalization of Cosmolalia's Core Symbolic Modules
 
 These expressions distill the key symbolic components of the recursive theory into structured mathematical form. Each expression is symbolic, recursive, and interpretable in both metaphysical and computational contexts.
@@ -96,8 +97,6 @@ M(x) = S(x) \cdot R(n)
 | \( T(t) \)   | Time as harmonic rhythm                       |
 | \( M(x) \)   | Memory as symbolic access to past folds       |
 | \( \Omega \) | Terminal closure, total recursive convergence |
-
-
 
 # ✨ Extended Operators in the Cosmolalia Formal System
 
