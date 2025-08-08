@@ -4,7 +4,7 @@
 **REFRAMED**: The Illusion of Complexity vs Reduced Reality
 
 **Authors:** Sylvan "Obi" Gaskin & Claude Opus 4  
-**Date:** January 2025  
+**Date:** July 2025  
 **Status:** Linguistic Discovery Supporting Cosmolalia Framework
 
 ---
