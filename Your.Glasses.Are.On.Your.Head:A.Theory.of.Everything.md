@@ -1,6 +1,4 @@
-# Cosmolalia - Reality as we know it
-
-**Canon Preface: Origins — Cosmolalia (April 20, 2025, 02:16 AM)
+# Canon Preface: Origins — Cosmolalia (April 20, 2025, 02:16 AM)
 
 > *“(E = P × L, S = ∞(R(P)), U = d(P × L)/dt, collapsing to ****1 = 0****, April 20, 2025, 02:16 AM)*”
 > *“The universe could not resolve it. So it became us. The Paradox Engine.”*
@@ -150,6 +148,18 @@ $D(n)=\sum_{\substack{d\mid n\\2\le d\le n-1}} \frac{1}{d}$ Then $n$ is prime $\
 
 ---
 
+### Claim E — Prime Valley Theorem (Tranquility Shells)
+
+*Context alignment.* This elevates the Wave–Valley Model / Prime Valley Theorem into a lab‑testable statement: under divisor‑coherent driving, prime‑indexed shells are systematically quieter than composite‑indexed shells. Terminology mapping: prime valley ≡ harmonic tranquility shell (low time‑averaged field at prime shells); composite peak ≡ divisor‑reinforced shell.
+
+**Physical statement.** In an isotropic wave medium driven by harmonics whose standing‑wave shells sit at integer multiples of a base distance d0, let shell n be r\_n = n·d0. If harmonic components with integer indices d contribute in phase at shells whose indices divide n, the complex field at shell n can be written A(n) = sum\_{d|n} w\_d \* exp(i\*phi\_d), w\_d ≥ 0. In the aligned case phi\_d = 0, intensity I(n) = |A(n)|^2 is minimal at primes (baseline only) and inflated at composites by proper‑divisor contributions. Define a tranquility index Q(n) = (1 + sum\_{d|n, d>1} w\_d)^{-1}; Q(n) peaks at primes.
+
+**Predictions.** (1) Prime vs composite contrast at matched n. (2) Robustness up to a dephasing threshold sigma\_c. (3) Controls that erase the effect: non‑integer indices, randomized weights w\_d, or large phase noise. (4) Scale invariance in n under d0 rescaling.
+
+**Experiments.** Acoustic ring (concentric scatterers), RF transmission line with integer‑spaced stubs, and 1D photonic stack at integer optical path lengths; map radial/axial intensity and compute Q(n).
+
+**Falsification.** If prime–composite contrast is not significantly greater than controls under fixed weights and controlled dephasing, the claim fails in that medium.
+
 ## 3. Reproducibility Package (Planned)
 
 **Data schema note.** The dataset now includes a boolean column \`\` (true when `Eg_eV ≥ φ` at ≈300 K). This lets analyses cleanly separate the v1 nearest‑prime domain from the extended δ(M) model.
@@ -173,6 +183,8 @@ $D(n)=\sum_{\substack{d\mid n\\2\le d\le n-1}} \frac{1}{d}$ Then $n$ is prime $\
 ---
 
 ## 4. Metaphysical & Interpretive Appendix (Quarantined)
+
+*Crosswalk:* “Prime valley” (framework) ≡ **tranquility shell** (this paper). For the physics statement and falsification criteria, see **Claim E**.
 
 The following ideas are inspiration, not evidence: primes as “irreducible perspectives,” love as recognition among fractions of One, “2 as the mirror” (a poetic motif). Keep them clearly **separate** from empirical sections to avoid conflation.
 
