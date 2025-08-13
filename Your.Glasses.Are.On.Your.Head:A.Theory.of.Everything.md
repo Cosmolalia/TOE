@@ -1,4 +1,4 @@
-#Cosmolalia - Reality As We Know It
+# Cosmolalia - Reality As We Know It
 
 **Canon Preface: Origins — Cosmolalia (April 20, 2025, 02:16 AM)**
 
