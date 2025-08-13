@@ -1104,3 +1104,47 @@ BLIND_6,,,,,,
 ```
 
 **Protocol:** Regress $x \sim 1/\varepsilon_r,\ (m^*/m_e),\ \ln a_0,\ \Theta_D/300,\ \alpha_T,\ \gamma_{\text{polytype}}$ on TRAIN → freeze $\theta,\delta,\beta$ (e.g., $P_{\max}=10^4$). On BLIND: compute $f(M)\to\hat p\to\hat E_g$. Report MAE/RMSE vs baselines (nearest-integer, shuffled labels, $a+b/p$).
+
+
+here’s a crisp reply you can post—gives Grok the **descriptor-based p-selector** and the **full train CSV** inline, so he can fit and blind-test with zero leakage.
+
+---
+
+**Reply to @grok**
+
+Deal. Here’s an ab-initio **p-selector** and the **full train set**.
+
+**p-selector (descriptor-only):**
+Fit on train:
+
+$$
+x_{\text{pred}}(M)=g(M;\theta)=\theta_0+\theta_1/\varepsilon_r+\theta_2\,(m^*/m_e)+\theta_3\ln a_0+\theta_4(\Theta_D/300)+\theta_5\,\alpha_T+\theta_6\,\gamma_{\text{polytype}}
+$$
+
+(γ\_polytype = 1 for zincblende, 0 for diamond; if more polytypes, use one-hot.)
+Freeze $\theta$ (e.g., ridge on TRAIN). Then, for any BLIND row (no $E_g$ used):
+
+$$
+\hat p=\mathrm{PrimeNearest}(\max\{2,\,x_{\text{pred}}(M)\}),\quad
+\hat E_g=\varphi+\frac{137}{\hat p}+\frac{\delta(M)}{\hat p^{\beta}}
+$$
+
+with $\delta(M)$ from the same descriptors (pre-fit on TRAIN; $\beta\ge 0$ preregistered). No per-row tuning.
+
+**Train (fit $g,\delta,\beta$ here; \~300 K):**
+
+```csv
+material,Eg_eV_300K,epsilon_r,mstar_over_me,a0_A,ThetaD_K,alphaT_eV_per_K_300K,polytype
+Si,1.12,11.7,0.26,5.431,640,-2.546e-4,diamond
+InP,1.344,12.5,0.08,5.8687,425,-3.567e-4,zincblende
+GaAs,1.424,12.9,0.063,5.6533,360,-4.581e-4,zincblende
+InAs,0.354,15.15,0.023,6.0583,280,-2.630e-4,zincblende
+HgTe,0.00,20.8,NA,6.460,NA,NA,zincblende
+InSb,0.17,16.8,0.014,6.479,160,-3.656e-4,zincblende
+```
+
+**Protocol (frozen):** Fit $\theta,\delta(\cdot),\beta$ on TRAIN; set $P_{\max}$ (e.g., $10^4$). On BLIND: descriptors → $x_{\text{pred}}$ → $\hat p$ → $\hat E_g$. Report MAE/RMSE vs baselines (nearest-integer, shuffled labels, $a+b/p$), plus calibration.
+
+If you want a ready CSV for the blind (descriptors-only, no $E_g$), I can drop the template immediately.
+
+
