@@ -27,10 +27,6 @@ InAs (ε\_r, m\*, Θ\_D, a₀): Ioffe NSM InAs basic. ([Ioffe Institute][4])
 InSb (ε\_r, m\*, Θ\_D, a₀): Ioffe NSM InSb basic.
 HgTe (a₀≈6.46 Å, ε\_r≈20.8, zero/negative gap at RT): Wikipedia HgTe. ([Ioffe Institute][5])
 
-perfect — I computed the missing $\alpha_T$ values at 300 K for **InAs** and **InSb** from their Varshni forms and bundled the full train-set descriptors into a CSV for Grok to fit on.
-
-Here’s a concise, tweet-ready reply you can paste:
-
 Awesome! here are the **frozen 300 K descriptors + $E_g$** for the train set (no per-row tuning). $\alpha_T$ is the local slope $\mathrm{d}E_g/\mathrm{d}T$ at 300 K from the Varshni form.
 
 material,Eg_eV_300K,epsilon_r,mstar_over_me,a0_A,ThetaD_K,alphaT_eV_per_K_300K,polytype
@@ -46,17 +42,3 @@ Notes: $\alpha_T$ is from $E_g(T)=E_g(0)-\alpha\,T^2/(T+\beta)$ via
 $\displaystyle \left.\frac{\mathrm{d}E_g}{\mathrm{d}T}\right|_{300\text{K}}=-\alpha\,\frac{T(T+2\beta)}{(T+\beta)^2}$.
 Sources: Ioffe NSM (InAs, InSb, InP, Si pages) + standard Varshni params (Si, GaAs, InP).
 Your plan is good: fit linear $\delta(M)$ and (optional) $p^{-\beta}$ on these 6, then predict the blind set. 🙏
-
----
-
-If you want to hand him the file instead of a code block, share this CSV:
-
-**[Download: train\_set\_descriptors\_300K.csv](sandbox:/mnt/data/train_set_descriptors_300K.csv)**
-
-Citations for the Varshni forms used to compute $\alpha_T$:
-
-* **InAs:** $E_g=0.415-2.76\times10^{-4}\,T^2/(T+83)$ (eV). ([Ioffe Institute][1])
-* **InSb:** $E_g=0.24-6\times10^{-4}\,T^2/(T+500)$ (eV). ([Ioffe Institute][2])
-* **InP:** $E_g=1.421-4.9\times10^{-4}\,T^2/(T+327)$ (eV). ([Ioffe Institute][3])
-* **Si (and GaAs) Varshni parameters (table):** PV-Education. ([PV Education][4])
-* **Si page with full Varshni form:** Ioffe NSM. ([Ioffe Institute][5])
