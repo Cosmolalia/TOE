@@ -1,0 +1,4 @@
+material,Eg_eV,Eg_type,temperature_K,crystal_structure,polytype,doping_type,doping_level_cm^-3,measurement_method,sample_quality,source_citation,source_DOI_or_URL,year,notes
+Silicon,1.12,indirect,300,diamond,,intrinsic,,photoemission/optical,bulk,"Sze & Ng, Physics of Semiconductor Devices (3rd ed.)",,,Room-temperature canonical value; replace with specific paper if available.
+Germanium,0.66,indirect,300,diamond,,intrinsic,,optical,bulk,Standard reference value; add primary source,,,
+GaAs,1.42,direct,300,zincblende,,intrinsic,,optical,bulk/epi,Standard reference value; add primary source,,,
