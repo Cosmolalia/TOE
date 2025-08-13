@@ -116,8 +116,7 @@ x\_pred(M) = g(M; θ) = c0 + c1/epsilon\_r + c2\*(m\*/me) + c3*ln(a0) + c4*(Thet
 
 Freeze θ after training. Then, for any held-out material **without using its Eg**:
 
-p\_hat = PrimeNearest( max{2, x\_pred(M)} ),
-Eg\_hat = φ + 137/p\_hat + δ(M)/p\_hat^β.
+p\_hat = PrimeNearest( max{2, x\_pred(M)} ), Eg\_hat = φ + 137/p\_hat + δ(M)/p\_hat^β.
 
 Optionally report a probabilistic version by weighting primes near x\_pred: w(p) ∝ exp(-λ |p - x\_pred|), then report E\[Eg] and a confidence band. No per-row tuning; g, δ, β are frozen before evaluating the blind set.
 
@@ -137,7 +136,21 @@ HgTe,0.00,20.8,NA,6.460,NA,NA,zincblende
 InSb,0.17,16.8,0.014,6.479,160,-3.656e-4,zincblende
 ```
 
-*Note.* HgTe is treated as zero/inverted-gap at room temperature; NA fields are allowed per δ(M) spec via a missing-descriptor flag. A separate **blind-set descriptors** table will be provided without E\_g values.
+*Note.* HgTe is treated as zero/inverted-gap at room temperature; NA fields are allowed per δ(M) spec via a missing-descriptor flag.
+
+**Blind-set descriptors (no Eg column).** Same fields as δ(M) inputs; omit Eg entirely. These rows are what the p-selector uses to produce p\_hat and Eg\_hat with **no target leakage**.
+
+```
+material,epsilon_r,mstar_over_me,a0_A,ThetaD_K,alphaT_eV_per_K_300K,polytype
+BLIND_1,,,,,,
+BLIND_2,,,,,,
+BLIND_3,,,,,,
+BLIND_4,,,,,,
+BLIND_5,,,,,,
+BLIND_6,,,,,,
+```
+
+*(CSV template available as an artifact alongside the code.)*
 
 ---
 
@@ -220,6 +233,27 @@ Everything experienced is a fraction $1/n$ of a unified whole; primes mark addre
 ### 4.2 Trinity Motif
 
 While “2 is not prime” is false in standard arithmetic, one may still explore a *symbolic* thesis that systems stabilize when a third relation closes the loop (observer–observed–relation). Treat this as metaphor unless and until a precise, testable mathematical statement emerges.
+
+### 4.3 Prediction as Epistemic Pre-Description
+
+Your philosophical point is preserved here: a true model does not “conjure” futures—it describes what is. In practice, scientific “prediction” is an epistemic protocol: we freeze a rule and the information it may use, then describe parts of the world we have not yet looked at. Once revealed, the claim is no longer a prediction; it is just description.
+
+**Operational definition used in this paper.** A claim is predictive if and only if (i) the mapping (R, Theta) and allowed inputs (descriptors) are preregistered, (ii) target values are hidden during selection, and (iii) success is scored on held-out data. Under this framing: v1 is a descriptive compression of observed Eg; v2 is predictive only in the information-hiding sense (descriptors -> p\_hat -> Eg\_hat)—both are descriptions of the same world, separated by when we are allowed to look.
+
+### 4.4 Asymmetry in Conscious Systems (Channel vs Content)
+
+**Claim (philosophical).** In systems that include conscious agents, prediction is *asymmetric*: we may reliably predict **channel conditions** (when/where/geometry/coherence under named constraints), but we cannot deterministically predict the **content** of consciousness (what a person will feel/mean/choose) without collapsing the very openness that makes it conscious.
+
+**Illustrations.**
+
+* *Rainbow:* Given sun, droplets, and \~42° geometry, a bow appears—this is channel geometry. Once present, it is no longer a prediction but a description.
+* *Human response:* “If I cheat/lie/steal, someone may feel hurt” is a high-probability channeling of affect, yet the **specific content** (hurt, anger, detachment, forgiveness) remains contingent and reflexive—no fixed microstate can be guaranteed ex ante.
+
+**Guideline for this paper.** Where consciousness is implicated, we limit ourselves to **constraint-level** or **distributional** statements (channels), not point predictions of content. In practice: preregister the constraints, measure outcome distributions, and avoid claiming exact content in advance.
+
+Your philosophical point is preserved here: a true model does not “conjure” futures—it describes what is. In practice, scientific “prediction” is an epistemic protocol: we freeze a rule and the information it may use, then describe parts of the world we have not yet looked at. Once revealed, the claim is no longer a prediction; it is just description.
+
+**Operational definition used in this paper.** A claim is predictive if and only if (i) the mapping (R, Theta) and allowed inputs (descriptors) are preregistered, (ii) target values are hidden during selection, and (iii) success is scored on held-out data. Under this framing: v1 is a descriptive compression of observed Eg; v2 is predictive only in the information-hiding sense (descriptors -> p\_hat -> Eg\_hat)—both are descriptions of the same world, separated by when we are allowed to look.
 
 ---
 
