@@ -561,7 +561,7 @@ GaAs,1.424,12.9,0.063,5.6533,360,-4.581e-4,zincblende
 InAs,0.354,15.15,0.023,6.0583,280,-2.630e-4,zincblende
 HgTe,0.00,20.8,NA,6.460,NA,NA,zincblende   # zero/inverted gap at RT
 InSb,0.17,16.8,0.014,6.479,160,-3.656e-4,zincblende
-```
+
 
 Notes: $\alpha_T$ is from $E_g(T)=E_g(0)-\alpha\,T^2/(T+\beta)$ via
 $\displaystyle \left.\frac{\mathrm{d}E_g}{\mathrm{d}T}\right|_{300\text{K}}=-\alpha\,\frac{T(T+2\beta)}{(T+\beta)^2}$.
@@ -1005,3 +1005,62 @@ a+b/p
 a+b/p) on MAE/RMSE and calibration. If primes carry real signal, this outperforms baselines on the blind set—especially for mixed Eg (including 
 <φ
 <φ).
+
+
+absolutely—here’s a clean, ready-to-post reply to Grok that (a) spells out how we’ll do **ab-initio** prediction via a descriptor-only p-selector, and (b) provides the **train** rows (with $E_g$) and a **blind** set (no $E_g$), all at \~300 K with sources.
+
+---
+
+**Reply to @grok**
+
+You’re right that $x\!=\!137/(E_g-\varphi)$ is descriptive. For **ab-initio** prediction we freeze a descriptor-only p-selector $x_{\text{pred}}=g(M;\theta)$ learned on a train set, then set $p_{\hat{}}\!=$$\text{PrimeNearest}(x_{\text{pred}})$ and $E_{\hat g}=\varphi+137/p_{\hat{}}+\delta(M)/p_{\hat{}}^{\beta}$. No $E_g$ from the target row leaks into $p$.
+
+**Train (fit $\theta,\delta,\beta$ here; no per-row tuning):**
+
+```csv
+material,Eg_eV_300K,epsilon_r,mstar_over_me,a0_A,ThetaD_K,alphaT_eV_per_K_300K,polytype
+Si,1.12,11.7,0.26,5.431,640,-2.546e-4,diamond
+InP,1.344,12.5,0.08,5.8687,425,-3.567e-4,zincblende
+GaAs,1.424,12.9,0.063,5.6533,360,-4.581e-4,zincblende
+InAs,0.354,15.15,0.023,6.0583,280,-2.630e-4,zincblende
+HgTe,0.00,20.8,NA,6.460,NA,NA,zincblende
+InSb,0.17,16.8,0.014,6.479,160,-3.656e-4,zincblende
+```
+
+**Blind (omit $E_g$; use these descriptors only to predict $p_{\hat{}}$ and $E_{\hat g}$):**
+
+```csv
+material,epsilon_r,mstar_over_me,a0_A,ThetaD_K,alphaT_eV_per_K_300K,polytype
+Ge,16.2,0.12,5.658,374,NA,diamond
+GaN,8.9,0.20,3.189,600,NA,wurtzite
+AlAs,10.06,NA,5.661,417,NA,zincblende
+CdTe,10.2,0.11,6.482,141,NA,zincblende
+GaP,11.1,0.30,5.451,446,NA,zincblende
+ZnSe,8.6,0.16,5.667,339,NA,zincblende
+```
+
+**Protocol (frozen):**
+
+* Learn $g(M;\theta)$ (e.g., linear in $1/\varepsilon_r, m^\*/m_e, \ln a_0, \Theta_D/300, \text{polytype dummies}$) **only** on TRAIN.
+* Freeze $\theta,\delta(\cdot),\beta$.
+* For each BLIND row: compute $x_{\text{pred}}\to p_{\hat{}}\to E_{\hat g}$.
+* Report MAE/RMSE vs controls (nearest-integer, shuffle, $a+b/p$).
+
+**Notes:**
+• Some $\alpha_T$ are NA; missing is allowed by the prereg (flagged).
+• For Ge and GaP, $m^\*/m_e$ listed is the conductivity effective mass computed from Ioffe’s longitudinal/transverse values (noted below).
+• GaN uses wurtzite $a$ (3.189 Å); polytype is encoded.
+
+**Sources (300 K where given):**
+Si basic params (εr=11.7, Debye 640 K, masses) — Ioffe NSM. ([Ioffe Institute][1])
+InP basic params (εr=12.5, m\*=0.08, a0=5.8687 Å, ΘD=425 K) — Ioffe NSM. ([Ioffe Institute][2])
+GaAs basic params (εr=12.9, m\*=0.063, a0=5.6533 Å, ΘD=360 K) — Ioffe NSM.
+InAs basic params (εr=15.15, m\*=0.023, a0=6.0583 Å, ΘD=280 K) — Ioffe NSM. ([Ioffe Institute][3])
+InSb basic params (εr=16.8, m\*=0.014, a0=6.479 Å, ΘD=160 K) — Ioffe NSM. ([Ioffe Institute][4])
+HgTe (εr≈20.8, a0≈0.646 nm) — Wikipedia/PubChem (semi-metal, zero/negative gap at 300 K). ([Wikipedia][5], [PubChem][6])
+Ge (εr=16.2; m\_l=0.98, m\_t=0.19 ⇒ $m_c\approx0.12$; a0=5.658 Å; ΘD=374 K) — Ioffe NSM (mass components used to compute $m_c$). ([femto.nmsu.edu][7])
+GaN wurtzite (εr=8.9, m\*=0.20, ΘD=600 K) — Ioffe NSM; lattice a=3.189 Å, c=5.186 Å — Crystallography DB.
+AlAs (εr≈10.06 via AlGaAs parameterization at x=1; a0=5.661 Å; ΘD≈417 K) — Ioffe NSM (AlGaAs), Wikipedia. ([Physical Review][8])
+CdTe (εr≈10.2; $m_e^\*\approx0.11$; a0=6.482 Å; ΘD≈141 K) — AZoM; peer-reviewed/MC refs for $m^\*$; Wikipedia; PRB/X-ray Debye. ([AZoM][9], [PMC][10], [Physical Review][11])
+GaP (εr=11.1; m\_l=1.12, m\_t=0.22 ⇒ $m_c\approx0.30$; a0=5.451 Å; ΘD=446 K) — Ioffe NSM.
+ZnSe (εr=8.6; $m_e^\*=0.16$; a0=5.667 Å; ΘD≈339 K) — PVeducation. ([Wikipedia][12])
