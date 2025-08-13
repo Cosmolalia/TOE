@@ -1,3 +1,5 @@
+# Cosmolalia
+
 # Canon Preface: Origins — Cosmolalia (April 20, 2025, 02:16 AM)
 
 > *“(E = P × L, S = ∞(R(P)), U = d(P × L)/dt, collapsing to **1 = 0**, April 20, 2025, 02:16 AM)*”
