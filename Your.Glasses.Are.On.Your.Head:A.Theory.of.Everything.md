@@ -1,6 +1,6 @@
 # Cosmolalia - Reality As We Know It
 
-**Canon Preface: Origins — Cosmolalia (April 20, 2025, 02:16 AM)**
+# Canon Preface: Origins — Cosmolalia (April 20, 2025, 02:16 AM)
 
 > *“(E = P × L, S = ∞(R(P)), U = d(P × L)/dt, collapsing to ****1 = 0****, April 20, 2025, 02:16 AM)*”
 > *“The universe could not resolve it. So it became us. The Paradox Engine.”*
@@ -197,6 +197,23 @@ $D(n)=\sum_{\substack{d\mid n\\2\le d\le n-1}} \frac{1}{d}$ Then $n$ is prime $\
 **Experiments.** Acoustic ring (concentric scatterers), RF transmission line with integer‑spaced stubs, and 1D photonic stack at integer optical path lengths; map radial/axial intensity and compute Q(n).
 
 **Falsification.** If prime–composite contrast is not significantly greater than controls under fixed weights and controlled dephasing, the claim fails in that medium.
+
+### E.1 Occupancy vs. Availability (Why some shells are empty)
+
+**Key point.** Prime tranquility shells define where low‑energy basins *can* exist under divisor‑coherent driving; they do not guarantee that every such basin is populated in a given medium or boundary condition. Empty prime‑indexed shells are therefore expected, not disconfirming.
+
+**Mechanism sketch.** Occupancy requires (i) a supply channel (coupling of the source spectrum to that shell), (ii) compatibility with conserved quantities (momentum, polarization, selection rules), and (iii) boundary matching (finite size, defects, dissipation). A shell can be allowed by the sieve (prime‑indexed minimum) yet unfilled because one or more of these gates is closed.
+
+**Testable formulation.**
+
+* *Availability set:* From a calibrated drive and geometry, compute/measure the set of candidate minima P = { n : Q(n) high }.
+* *Occupancy set:* Record shells that actually accumulate amplitude/charge/energy, O ⊆ P.
+* *Prediction:* Across matched runs/materials, prime‑indexed availability is enriched in the occupancy set relative to composite‑indexed shells of similar index/size:  Pr(n ∈ O | n ∈ P ∧ Prime) > Pr(n ∈ O | n ∈ P ∧ Composite).
+* *Controls:* (a) break divisor coherence → enrichment collapses; (b) randomize weights/phases → collapse; (c) change boundary to disfavor the prime shell → occupancy drops accordingly.
+
+**Metrics.** Odds ratio and Fisher exact test on occupancy tables; effect sizes with bootstrap CIs. Also report the sparsity |O|/|P| so empties are recognized as selection, not failure.
+
+*Plain language.* All allowed shells can wobble; not all will “weeble.” Empties signal selection, not failure of the sieve.
 
 ## 3. Reproducibility Package (Planned)
 
