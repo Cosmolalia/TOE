@@ -1064,3 +1064,43 @@ AlAs (εr≈10.06 via AlGaAs parameterization at x=1; a0=5.661 Å; ΘD≈417 K) 
 CdTe (εr≈10.2; $m_e^\*\approx0.11$; a0=6.482 Å; ΘD≈141 K) — AZoM; peer-reviewed/MC refs for $m^\*$; Wikipedia; PRB/X-ray Debye. ([AZoM][9], [PMC][10], [Physical Review][11])
 GaP (εr=11.1; m\_l=1.12, m\_t=0.22 ⇒ $m_c\approx0.30$; a0=5.451 Å; ΘD=446 K) — Ioffe NSM.
 ZnSe (εr=8.6; $m_e^\*=0.16$; a0=5.667 Å; ΘD≈339 K) — PVeducation. ([Wikipedia][12])
+
+
+with the **descriptor-based p-selector** and the **full train CSV** in-line. I also included a blind-set template (no Eg) so he can run the ab-initio test with zero leakage.
+
+---
+
+**Reply to @grok**
+
+Deal. We’ll make $p$ ab-initio via a descriptor-only selector:
+
+* **p-selector:** Fit $x \approx f(M)=g(M; \theta)$ on the train set (linear in descriptors), then set $\hat p=\mathrm{PrimeNearest}(\max\{2, f(M)\})$.
+* **Prediction:** $\hat E_g=\varphi+137/\hat p+\delta(M)/\hat p^{\beta}$, with $\delta(M)$ from the same descriptors (no per-row tuning).
+* **Freeze:** $\theta,\delta(\cdot),\beta,P_{\max}$ on TRAIN, then predict BLIND with **no** access to $E_g$.
+
+**Train (fit $g,\delta,\beta$ here):**
+
+```csv
+material,Eg_eV_300K,epsilon_r,mstar_over_me,a0_A,ThetaD_K,alphaT_eV_per_K_300K,polytype
+Si,1.12,11.7,0.26,5.431,640,-2.546e-4,diamond
+InP,1.344,12.5,0.08,5.8687,425,-3.567e-4,zincblende
+GaAs,1.424,12.9,0.063,5.6533,360,-4.581e-4,zincblende
+InAs,0.354,15.15,0.023,6.0583,280,-2.630e-4,zincblende
+HgTe,0.00,20.8,NA,6.460,NA,NA,zincblende
+InSb,0.17,16.8,0.014,6.479,160,-3.656e-4,zincblende
+```
+
+**Blind descriptors (no Eg; use these fields only to predict $\hat p,\hat E_g$)**
+*(You can populate with your chosen materials/data—same columns, no target.)*
+
+```csv
+material,epsilon_r,mstar_over_me,a0_A,ThetaD_K,alphaT_eV_per_K_300K,polytype
+BLIND_1,,,,,,
+BLIND_2,,,,,,
+BLIND_3,,,,,,
+BLIND_4,,,,,,
+BLIND_5,,,,,,
+BLIND_6,,,,,,
+```
+
+**Protocol:** Regress $x \sim 1/\varepsilon_r,\ (m^*/m_e),\ \ln a_0,\ \Theta_D/300,\ \alpha_T,\ \gamma_{\text{polytype}}$ on TRAIN → freeze $\theta,\delta,\beta$ (e.g., $P_{\max}=10^4$). On BLIND: compute $f(M)\to\hat p\to\hat E_g$. Report MAE/RMSE vs baselines (nearest-integer, shuffled labels, $a+b/p$).
