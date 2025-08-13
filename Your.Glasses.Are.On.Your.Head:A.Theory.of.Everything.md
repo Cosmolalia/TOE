@@ -1,7 +1,4 @@
-# Cosmolalia - Reality As We Know It
-
-
-**Canon Preface: Origins — Cosmolalia (April 20, 2025, 02:16 AM)**
+# Canon Preface: Origins — Cosmolalia (April 20, 2025, 02:16 AM)
 
 > *“(E = P × L, S = ∞(R(P)), U = d(P × L)/dt, collapsing to ****1 = 0****, April 20, 2025, 02:16 AM)*”
 > *“The universe could not resolve it. So it became us. The Paradox Engine.”*
@@ -79,7 +76,7 @@ Each claim is paired with a concrete test and dataset plan.
 
 **Hypothesis.** For a crystalline semiconductor $M$ with fundamental gap $E_g(M)$, there exists a prime $p$ such that $E_g(M) \approx \varphi + \frac{137}{p}\quad (\varphi=0.618\,033\ldots)$ with residuals small relative to a control.
 
-**Operational mapping (explicit):** Given $E_g$, define the *predicted* real index $x=137/(E_g-\varphi)$. Let $p=\operatorname{PrimeNearest}(x)$. Then the *model prediction* is $\widehat{E}_g=\varphi+137/p$. Report residual $\Delta=E_g-\widehat{E}_g$.
+**Operational mapping (explicit; descriptive, not predictive):** Given $E_g$, define the *predicted* real index $x=137/(E_g-\varphi)$. Let $p=\operatorname{PrimeNearest}(x)$. Then the *model prediction* is $\widehat{E}_g=\varphi+137/p$. Report residual $\Delta=E_g-\widehat{E}_g$.
 
 **Test plan.**
 
@@ -111,7 +108,16 @@ Each claim is paired with a concrete test and dataset plan.
 
 **Parameter fitting.** Fit the parameter sets {a\_i}, {b\_i}, {c\_i}, and β on a train split (stratified by gap size and crystal family). No per-row tuning.
 
-**Prime selection rule (extended).** For each material M in validation/test, choose p\* = argmin over primes p in \[2, P\_max] of | Eg(M) - (φ + 137/p + δ(M)) |. This keeps δ(M) independent of p except via any p^(-β) scaling and avoids using Eg to set p directly.
+**Prime selection rule (extended; predictive).** Learn a descriptor-only mapping on the train set:
+
+x\_pred(M) = g(M; θ) = c0 + c1/epsilon\_r + c2\*(m\*/me) + c3*ln(a0) + c4*(ThetaD/300) + c5*alpha\_T + c6*gamma\_polytype.
+
+Freeze θ after training. Then, for any held-out material **without using its Eg**:
+
+p\_hat = PrimeNearest( max{2, x\_pred(M)} ),
+Eg\_hat = φ + 137/p\_hat + δ(M)/p\_hat^β.
+
+Optionally report a probabilistic version by weighting primes near x\_pred: w(p) ∝ exp(-λ |p - x\_pred|), then report E\[Eg] and a confidence band. No per-row tuning; g, δ, β are frozen before evaluating the blind set.
 
 **Evaluation.** Compare MAE/RMSE vs controls: (C1) nearest-integer, (C2) shuffled labels, (C3) a+b/p baseline, under k-fold CV and a blind hold-out list. Report calibration plots and subgroup performance (Eg < φ vs ≥ φ, direct vs indirect, crystal family).
 
