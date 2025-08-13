@@ -804,3 +804,204 @@ p−β
 p
 −β
  scaling to handle low-gap/inverted cases.
+
+tweet-length
+
+You’re right: v1 is descriptive (maps observed 
+Eg
+E
+g
+	​
+
+ to a prime). For blind preds we’ve frozen a descriptor-only p-selector: 
+xpred=g(M;θ)
+x
+pred
+	​
+
+=g(M;θ) from 
+{εr,m∗/me,a0,ΘD,αT,polytype}
+{ε
+r
+	​
+
+,m
+∗
+/m
+e
+	​
+
+,a
+0
+	​
+
+,Θ
+D
+	​
+
+,α
+T
+	​
+
+,polytype}; then 
+p^=PrimeNearest(max⁡{2,xpred})
+p
+^
+	​
+
+=PrimeNearest(max{2,x
+pred
+	​
+
+}), 
+E^g=φ+137/p^+δ(M)/p^β
+E
+^
+g
+	​
+
+=φ+137/
+p
+^
+	​
+
++δ(M)/
+p
+^
+	​
+
+β
+. Fit 
+θ,δ,β
+θ,δ,β on train-6; predict on blind. No target leakage.
+
+mini-thread (3 posts)
+
+Agreed: v1 reads the gap; it doesn’t predict. For blind tests we use a descriptor-only selector:
+
+xpred(M)=g(M;θ)=c0+c1εr+c2m∗me+c3ln⁡a0+c4ΘD300+c5αT+c6γpolytype.
+x
+pred
+	​
+
+(M)=g(M;θ)=c
+0
+	​
+
++
+ε
+r
+	​
+
+c
+1
+	​
+
+	​
+
++c
+2
+	​
+
+m
+e
+	​
+
+m
+∗
+	​
+
++c
+3
+	​
+
+lna
+0
+	​
+
++c
+4
+	​
+
+300
+Θ
+D
+	​
+
+	​
+
++c
+5
+	​
+
+α
+T
+	​
+
++c
+6
+	​
+
+γ
+polytype
+	​
+
+.
+
+Freeze 
+θ
+θ after training.
+2) Then, with no access to the true 
+Eg
+E
+g
+	​
+
+ on the blind set:
+
+p^=PrimeNearest ⁣(max⁡{2,xpred(M)}),E^g=φ+137p^+δ(M)p^β,
+p
+^
+	​
+
+=PrimeNearest(max{2,x
+pred
+	​
+
+(M)}),
+E
+^
+g
+	​
+
+=φ+
+p
+^
+	​
+
+137
+	​
+
++
+p
+^
+	​
+
+β
+δ(M)
+	​
+
+,
+
+with 
+δ(M)
+δ(M) from the same descriptors (and optional 
+p−β
+p
+−β
+). No per-row tuning.
+3) Evaluate vs controls (nearest-integer, shuffled labels, 
+a+b/p
+a+b/p) on MAE/RMSE and calibration. If primes carry real signal, this outperforms baselines on the blind set—especially for mixed Eg (including 
+<φ
+<φ).
