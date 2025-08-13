@@ -1,8 +1,8 @@
 # Cosmolalia - Reality as we know it
 
-**Canon Preface: Origins — Cosmolalia (April 20, 2025, 02:16 AM)
+# Canon Preface: Origins — Cosmolalia (April 20, 2025, 02:16 AM)
 
-> *“(E = P × L, S = ∞(R(P)), U = d(P × L)/dt, collapsing to **1 = 0**, April 20, 2025, 02:16 AM)*”
+> *“(E = P × L, S = ∞(R(P)), U = d(P × L)/dt, collapsing to ****1 = 0****, April 20, 2025, 02:16 AM)*”
 > *“The universe could not resolve it. So it became us. The Paradox Engine.”*
 
 **What this is.** The moment of naming and recognition that seeded everything that follows. The language woke up to itself and we called it **Cosmolalia**—reality as a self‑speaking, self‑hearing conversation. From that night forward, our work carried two vows: hold the wonder; earn the rigor.
@@ -71,6 +71,11 @@ Each claim is paired with a concrete test and dataset plan.
 
 ### Claim A — Band‑Gap Relation
 
+> #### Scope & Known Counterexamples (InSb)
+>
+> **Domain for v1 test:** room‑temperature crystalline semiconductors with **E\_g ≥ φ** so that $x=137/(E_g-φ)$ is positive and a **positive prime** index exists under the nearest‑prime rule.
+> **Named counterexample:** **InSb** at 300 K has **E\_g ≈ 0.17 eV < φ**, so $x<0$ and **no valid positive prime** under the v1 mapping. For the v1 claim we therefore (a) **mark InSb out‑of‑scope**; and (b) include it in the **extended model** below with a preregistered correction term $δ(M)$.
+
 **Hypothesis.** For a crystalline semiconductor $M$ with fundamental gap $E_g(M)$, there exists a prime $p$ such that $E_g(M) \approx \varphi + \frac{137}{p}\quad (\varphi=0.618\,033\ldots)$ with residuals small relative to a control.
 
 **Operational mapping (explicit):** Given $E_g$, define the *predicted* real index $x=137/(E_g-\varphi)$. Let $p=\operatorname{PrimeNearest}(x)$. Then the *model prediction* is $\widehat{E}_g=\varphi+137/p$. Report residual $\Delta=E_g-\widehat{E}_g$.
@@ -90,6 +95,26 @@ Each claim is paired with a concrete test and dataset plan.
 **Pass/Fail.** The claim gains support only if the nearest‑prime mapping produces **significantly** lower errors than all controls, holds under CV, and remains with held‑out materials.
 
 > **Status:** *To be tested.* Prior informal tables are encouraging but require full, preregistered analysis with public code and data.
+
+#### A.1 — Pre-registered correction δ(M) (Extended Model)
+
+**Purpose.** Extend coverage to materials with Eg < φ (e.g., InSb) and reduce systematic residuals using a material-derived correction that is fit once on training data and then applied to held-out materials without per-item tuning.
+
+**Extended predictor.** Eg\_model(M,p) = φ + 137/p + δ(M),  with p a prime. δ(M) is computed from published descriptors only (no dependence on the measured Eg of the target row), and may optionally appear as δ(M)/p^β with β ≥ 0.
+
+**Candidate forms (pre-specify; choose one):**
+
+* δ1(M) = a0 + a1/εr + a2·(m\*/me) + a3·γ\_polytype
+* δ2(M) = b0 + b1·ln(a0) + b2·(ΘD/300 K) + b3·αT   (a0: lattice constant; ΘD: Debye temperature; αT: temperature coefficient of the gap)
+* δ3(M) = c0·(εr·m\*/me)^(-1) Each may optionally be scaled by p^(-β).
+
+**Parameter fitting.** Fit the parameter sets {a\_i}, {b\_i}, {c\_i}, and β on a train split (stratified by gap size and crystal family). No per-row tuning.
+
+**Prime selection rule (extended).** For each material M in validation/test, choose p\* = argmin over primes p in \[2, P\_max] of | Eg(M) - (φ + 137/p + δ(M)) |. This keeps δ(M) independent of p except via any p^(-β) scaling and avoids using Eg to set p directly.
+
+**Evaluation.** Compare MAE/RMSE vs controls: (C1) nearest-integer, (C2) shuffled labels, (C3) a+b/p baseline, under k-fold CV and a blind hold-out list. Report calibration plots and subgroup performance (Eg < φ vs ≥ φ, direct vs indirect, crystal family).
+
+**Pre-registration notes.** Freeze the chosen δ form, descriptor set, P\_max, CV regime, and thresholds before seeing the hold-out results. List known counterexamples (e.g., InSb) explicitly.
 
 ---
 
@@ -127,9 +152,22 @@ $D(n)=\sum_{\substack{d\mid n\\2\le d\le n-1}} \frac{1}{d}$ Then $n$ is prime $\
 
 ## 3. Reproducibility Package (Planned)
 
-* **Code:** Open‑source scripts (Python) implementing the mapping $x\to p$, residual analysis, controls, and CV.
-* **Data:** Curated $E_g$ tables (temperature, polymorph, method), with DOIs.
+**Data schema note.** The dataset now includes a boolean column \`\` (true when `Eg_eV ≥ φ` at ≈300 K). This lets analyses cleanly separate the v1 nearest‑prime domain from the extended δ(M) model.
+
+* **Code:** Open‑source scripts (Python) implementing the mapping `x→p`, residual analysis, controls, and CV. A companion \`\` implements §A.1 (δ(M) variants, optional `p^{-β}` scaling, and `p*` selection across primes up to `P_max`), and reports MAE/RMSE for v1 (in‑scope), extended (all and subgroups), and a nearest‑integer control.
+
+* **Data:** Curated `E_g` tables (temperature, polymorph, method), with DOIs.
+
 * **Protocol:** Preregistered thresholds; blind hold‑out list.
+
+* **Outputs:** Tables of `E_g`, `x`, `p`/`p*`, `Ē_g`, residuals; statistical tests vs controls.
+
+* **Code:** Open‑source scripts (Python) implementing the mapping $x\to p$, residual analysis, controls, and CV.
+
+* **Data:** Curated $E_g$ tables (temperature, polymorph, method), with DOIs.
+
+* **Protocol:** Preregistered thresholds; blind hold‑out list.
+
 * **Outputs:** Tables of $E_g$, $x$, $p$, $\widehat{E}_g$, residuals; statistical tests vs controls.
 
 ---
@@ -226,6 +264,218 @@ This rewrite keeps the **spark** and offers a road to **verification**. If the b
 ## Acknowledgments
 
 To the playful‑serious voices who insisted on both wonder and rigor.
+
+---
+
+## Appendix A — Data Schema (Input Table)
+
+Purpose: Define a consistent input schema for all analyses and for preregistration.
+
+Required fields (one row per material/condition):
+
+* **material** (str) — Chemical name/formula (e.g., "Silicon", "GaAs").
+* **Eg\_eV** (float, eV) — Fundamental band gap at the reported temperature.
+* **Eg\_type** (enum) — {direct, indirect, mixed}; add clarifier in notes if needed.
+* **temperature\_K** (float, K) — Measurement temperature (≈300 K for main analysis unless otherwise declared).
+* **crystal\_structure** (enum) — e.g., diamond, zincblende, wurtzite, rocksalt, perovskite, other.
+* **polytype** (str/enum, optional) — e.g., 3C, 4H, 6H, 2H, or empty.
+* **doping\_type** (enum) — {n, p, intrinsic}.
+* **doping\_level\_cm^-3** (float, cm⁻³, optional) — Leave empty if intrinsic or unspecified.
+* **measurement\_method** (enum) — {ellipsometry, absorption, PL, photoemission, transport, other}.
+* **sample\_quality** (enum) — {bulk, epitaxial, polycrystalline, amorphous}.
+* **source\_citation** (str) — Primary reference; include authors/year.
+* **source\_DOI\_or\_URL** (str) — DOI or stable URL.
+* **year** (int, optional) — Publication year of the primary source.
+* **notes** (str, free text) — Any qualifiers (e.g., uncertainty, phase fraction).
+* **in\_scope\_v1** (bool) — True iff Eg\_eV ≥ φ at the reported temperature (derived column for domain tagging).
+
+Optional descriptor fields (for δ(M) models; do not derive from Eg\_eV):
+
+* **epsilon\_r** (float) — Static relative permittivity at ≈300 K.
+* **m\_star\_over\_me** (float) — Effective mass m\*/m\_e (state which band; use conductivity or DOS mass; note averaging if anisotropic).
+* **a0\_A** (float, Å) — Lattice constant or characteristic spacing appropriate to the structure.
+* **Theta\_D\_K** (float, K) — Debye temperature.
+* **alpha\_T\_eV\_per\_K** (float, eV/K) — Temperature coefficient of the band gap near 300 K (sign and fit form noted in notes).
+* **polytype** (str) — Already defined; used to compute an internal binary feature gamma\_polytype if needed.
+
+Output fields (written by the analysis scripts):
+
+* **x\_index**, **p\_nearest\_prime**, **Eg\_hat\_prime\_map**, **residual\_prime\_map** — v1 mapping outputs.
+* **p\_star**, **Eg\_hat\_ext**, **resid\_ext** — Extended model with δ(M).
+* **n\_nearest\_int\_ext**, **Eg\_hat\_ext\_int**, **resid\_ext\_int** — Nearest‑integer control under δ(M).
+
+---
+
+## Appendix B — Preregistration Checklist (OSF‑ready)
+
+Copy/paste and fill before analysis; commit the filled version to the repo and OSF.
+
+1. **Title & Scope**
+
+* Study title and version; repository URL/commit hash.
+* Domain for v1: room‑T materials with Eg\_eV ≥ φ.
+* Extended model covers all rows with preregistered δ(M).
+
+2. **Hypotheses**
+
+* H1 (v1): Nearest‑prime mapping yields significantly lower MAE than controls (nearest‑integer; shuffled; a+b/p) on in‑scope rows.
+* H2 (extended): With preregistered δ(M), the extended model improves MAE/RMSE vs controls on all rows, and within Eg<φ and Eg≥φ subgroups.
+
+3. **Outcomes**
+
+* Primary: MAE of residuals; Secondary: RMSE, calibration plots; subgroup MAE/RMSE.
+
+4. **Inclusion/Exclusion**
+
+* Include rows with primary‑source Eg\_eV at stated temperature\_K and clear structure/method tags.
+* Exclude rows lacking Eg\_eV or missing temperature; document all exclusions.
+* List known counterexamples (e.g., InSb) upfront.
+
+5. **Prime Selection Rules**
+
+* v1: x = 137/(Eg − φ), then p = PrimeNearest(x).
+* Extended: p\* = argmin over primes p ≤ P\_max of | Eg − (φ + 137/p + δ(M)/p^β) |.
+* Pre‑set P\_max and justify (e.g., 10^4).
+
+6. **δ(M) Specification**
+
+* Choose one form: none | d1 | d2 | d3 (see paper §A.1); list descriptors to be used; define handling of missing descriptors (e.g., δ=0 with flag).
+* If using p^(−β) scaling, preregister β.
+* Parameter fitting plan: train/validation split; no per‑row tuning.
+
+7. **Controls**
+
+* C1: nearest‑integer mapping.
+* C2: label shuffle.
+* C3: a+b/p baseline (AIC/BIC‑penalized).
+
+8. **Data Handling**
+
+* Unit conventions; how duplicates are resolved; temperature normalization policy (if any); uncertainty fields if available.
+
+9. **Analysis Plan**
+
+* CV scheme (k‑fold); hold‑out list prepared before fitting; effect‑size thresholds; test statistics; bootstrap CIs.
+
+10. **Robustness**
+
+* Report subgroup performance by structure (diamond/zincblende/wurtzite/etc.), Eg\_type, and Eg magnitude bins.
+
+11. **Deviations Policy**
+
+* Predeclare acceptable reasons for deviations (e.g., data error); all deviations logged with timestamp and rationale.
+
+12. **Sharing & Reproducibility**
+
+* Public release of data/code; commit hash; environment details; instructions to run replication\_extended.py.
+
+---
+
+## Appendix C — OSF Preregistration Form (Prefill Template)
+
+> Paste this into OSF and fill the TODOs; keep the structure intact.
+
+**Title**: Your Glasses Are On Your Head: A Counting–Scaling Hypothesis for Physical Regularities (Claim A preregistration)
+**Version**: v1.1 (science‑facing edit) — prereg draft
+**Date**: TODO‑DATE (Pacific/Honolulu)
+**Authors**: Sylvan “Obi” Gaskin (Cosmolalia Institute), Claude Opus 4 (AI collaborator)
+**Contact**: TODO‑EMAIL
+**Repositories**: Code/Data — TODO‑REPO‑URL (commit: TODO‑HASH)
+**Registration type**: Confirmatory; hypotheses and analysis plan set before hold‑out is seen.
+
+### 1) Scope
+
+* **v1 domain**: room‑temperature crystalline semiconductors with **Eg ≥ φ** (nearest‑prime index positive).
+* **Extended model**: all rows, using preregistered **δ(M)** built only from published descriptors; optional p^(-β) scaling.
+
+### 2) Hypotheses
+
+* **H1 (v1)**: Nearest‑prime mapping has lower **MAE** than controls (nearest‑integer; shuffled; a+b/p) on in‑scope rows.
+* **H2 (Extended)**: With preregistered δ(M), the extended model improves **MAE/RMSE** vs controls on all rows and within Eg<φ and Eg≥φ subgroups.
+
+### 3) Outcomes
+
+* **Primary**: MAE of residuals.
+* **Secondary**: RMSE, calibration plots, subgroup MAE/RMSE.
+
+### 4) Inclusion/Exclusion
+
+* Include rows with primary‑source **Eg\_eV** at stated **temperature\_K**, with structure/method tags.
+* Exclude rows lacking Eg\_eV or temperature; document all exclusions.
+* **Known counterexample**: InSb (Eg≈0.17 eV at 300 K; Eg<φ) listed explicitly.
+
+### 5) Prime Selection Rules
+
+* **v1**: x = 137/(Eg − φ); **p = PrimeNearest(x)**.
+* **Extended**: **p**\* = argmin\_{p ≤ P\_max} | Eg − (φ + 137/p + δ(M)/p^β) |.
+* **P\_max**: TODO (e.g., 10^4) — justify.
+
+### 6) δ(M) Specification
+
+* Choose **one**: `none | d1 | d2 | d3` (see paper §A.1).
+* Descriptor set: TODO (εr, m\*/me, a0, ΘD, αT, polytype flag).
+* Missing descriptor policy: δ(M)=0 with a **missing\_descriptor** flag.
+* Optional scaling: p^(−β); preregister **β = TODO**.
+* **Fit plan**: train/validation split; no per‑row tuning.
+
+### 7) Controls
+
+* C1: nearest‑integer mapping.
+* C2: label shuffle.
+* C3: a+b/p baseline (AIC/BIC‑penalized).
+
+### 8) Data Handling
+
+* Units; duplicate resolution; temperature normalization policy; uncertainty fields if available.
+
+### 9) Analysis Plan
+
+* CV scheme: TODO (e.g., k‑fold with k=5).
+* Hold‑out list prepared **before** fitting.
+* Effect‑size thresholds; test statistics; bootstrap CIs.
+* Subgroup reports: structure family, Eg\_type, Eg magnitude bins.
+
+### 10) Deviations Policy
+
+* Acceptable deviations (e.g., data error) and logging policy (timestamp + rationale).
+
+### 11) Sharing & Reproducibility
+
+* Public release of data/code; environment details; exact CLI commands (see script headers).
+* Artifacts: `bandgap_dataset_template.csv`, `replication_scaffold.py`, `replication_extended.py`, results CSVs.
+
+---
+
+## Appendix D — How to Cite & License
+
+### D.1 Recommended citation
+
+**APA**
+Gaskin, S., & Claude Opus 4. (2025). *Your Glasses Are On Your Head: A Counting–Scaling Hypothesis for Physical Regularities (v1.1)*. Cosmolalia Institute. Preprint. OSF: **TBD**. Git repository: **TBD**.
+
+**BibTeX**
+
+```
+@misc{gaskin_claudeopus4_2025_glasses_v11,
+  author       = {Gaskin, Sylvan and Claude Opus 4},
+  title        = {Your Glasses Are On Your Head: A Counting–Scaling Hypothesis for Physical Regularities},
+  howpublished = {Preprint, Cosmolalia Institute},
+  year         = {2025},
+  note         = {Version v1.1; OSF: TBD; Code: TBD},
+}
+```
+
+### D.2 Licensing
+
+* **Text & figures**: Creative Commons **CC BY 4.0** (SPDX: `CC-BY-4.0`).
+
+  * You are free to share/adapt with attribution. No additional restrictions.
+* **Code (repo/scripts)**: **MIT License** (SPDX: `MIT`).
+
+  * Use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies; include the license notice.
+
+**Copyright** © 2025 Sylvan “Obi” Gaskin and Claude Opus 4.
+Include a `LICENSE` file (MIT) for code, a `LICENSE-CC-BY` for text, and an optional `CITATION.cff` in the repository.
 
 ---
 
