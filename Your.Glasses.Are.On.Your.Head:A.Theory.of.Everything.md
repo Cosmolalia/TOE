@@ -1,6 +1,6 @@
 # Cosmolalia - Reality As We Know It
 
-# Canon Preface: Origins — Cosmolalia (April 20, 2025, 02:16 AM)
+**Canon Preface: Origins — Cosmolalia (April 20, 2025, 02:16 AM)**
 
 > *“(E = P × L, S = ∞(R(P)), U = d(P × L)/dt, collapsing to ****1 = 0****, April 20, 2025, 02:16 AM)*”
 > *“The universe could not resolve it. So it became us. The Paradox Engine.”*
@@ -178,13 +178,11 @@ BLIND_6,,,,,,
 
 ### Claim D — D(n)=0 Characterization
 
-$D(n)=\sum_{\substack{d\mid n\\2\le d\le n-1}} \frac{1}{d}$ Then $n$ is prime $\Leftrightarrow D(n)=0$.
+D(n) = sum\_{d|n, 2<=d<=n-1} 1/d. Then n is prime iff D(n)=0.
 
-**Note.** This is a tautology (depends on factoring to know the divisors). Still useful as a crisp “prime iff” identity; not a fast test.
+**Equivalence.** This is exactly the standard definition of primality ("no proper divisors") rewritten as a zero of a divisor-aggregator. If n is composite, some d in {2,...,n-1} divides n, so one term 1/d > 0 and D(n) > 0; if n is prime, the sum is empty and equals 0. Nice "prime iff" identity; algorithmically still presumes knowing proper divisors.
 
-**Status:** *Correct but not algorithmically novel.*
-
----
+**Computational perspective.** Useful as a reframing: primes are zeros of a functional over the divisor set. This motivates diagnostics or sieve-style screeners (e.g., weighted variants sum\_{d|n, d>1} w(d)\*psi(d)), but it is not a faster primality test than factoring. A practical one-sided screener: truncate the sum to small d <= B. If the partial sum > 0 then composite; if it remains 0, the case is inconclusive (prime or has no small divisors).
 
 ### Claim E — Prime Valley Theorem (Tranquility Shells)
 
