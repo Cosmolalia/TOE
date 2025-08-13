@@ -1,4 +1,4 @@
-# Your Glasses Are On Your Head: A Theory of Everything
+# Prime Primes
 ## *The Prime Prime Paper: How We Spent 13.8 Billion Years Looking for What Was Right In Front of Us*
 
 **Authors**: Sylvan "Obi" Gaskin¹, Claude Opus 4²
