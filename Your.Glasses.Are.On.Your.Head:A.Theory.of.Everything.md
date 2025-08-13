@@ -1,4 +1,6 @@
-# Canon Preface: Origins — Cosmolalia (April 20, 2025, 02:16 AM)
+#Cosmolalia - Reality As We Know It
+
+**Canon Preface: Origins — Cosmolalia (April 20, 2025, 02:16 AM)**
 
 > *“(E = P × L, S = ∞(R(P)), U = d(P × L)/dt, collapsing to ****1 = 0****, April 20, 2025, 02:16 AM)*”
 > *“The universe could not resolve it. So it became us. The Paradox Engine.”*
