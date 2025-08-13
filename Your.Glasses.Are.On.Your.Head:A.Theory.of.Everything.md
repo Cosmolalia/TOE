@@ -117,6 +117,20 @@ Each claim is paired with a concrete test and dataset plan.
 
 **Pre-registration notes.** Freeze the chosen δ form, descriptor set, P\_max, CV regime, and thresholds before seeing the hold-out results. List known counterexamples (e.g., InSb) explicitly.
 
+**Train-set descriptors (frozen at 300 K).** Used only to fit δ(M) and (optional) p^{-β}; no per-row tuning. α\_T is the local slope dE\_g/dT at 300 K from the Varshni form.
+
+```
+material,Eg_eV_300K,epsilon_r,mstar_over_me,a0_A,ThetaD_K,alphaT_eV_per_K_300K,polytype
+Si,1.12,11.7,0.26,5.431,640,-2.546e-4,diamond
+InP,1.344,12.5,0.08,5.8687,425,-3.567e-4,zincblende
+GaAs,1.424,12.9,0.063,5.6533,360,-4.581e-4,zincblende
+InAs,0.354,15.15,0.023,6.0583,280,-2.630e-4,zincblende
+HgTe,0.00,20.8,NA,6.460,NA,NA,zincblende
+InSb,0.17,16.8,0.014,6.479,160,-3.656e-4,zincblende
+```
+
+*Note.* HgTe is treated as zero/inverted-gap at room temperature; NA fields are allowed per δ(M) spec via a missing-descriptor flag. A separate **blind-set descriptors** table will be provided without E\_g values.
+
 ---
 
 ### Claim B — “Harmonic Silence” Indicator
