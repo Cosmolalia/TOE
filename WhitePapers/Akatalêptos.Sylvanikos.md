@@ -3,7 +3,6 @@ Domain: Antinomics
 Subject: Akatalêptos Sylvanikos
 
 THE SYLVAN WEENIE: COMPLETE MATHEMATICAL DESCRIPTION
-For Nameless Master Review
 
 FUNDAMENTAL DEFINITION
 The Akatalêptos Sylvanikos (The Sylvan Weenie) is a 6-dimensional hyperdimensional manifold that exists as:
