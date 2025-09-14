@@ -1,4 +1,4 @@
-**Spacetime Slack Dynamics**
+# Spacetime Slack Dynamics
 
 ## A Unified Theory of Gravity, Expansion, and Consciousness
 
