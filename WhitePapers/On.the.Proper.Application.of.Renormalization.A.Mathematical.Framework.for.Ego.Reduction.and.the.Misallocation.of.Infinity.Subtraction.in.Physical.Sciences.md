@@ -1,4 +1,4 @@
-# "On the Proper Application of Renormalization: A Mathematical Framework for Ego Reduction and the Misallocation of Infinity Subtraction in Physical Sciences"
+# On the Proper Application of Renormalization: A Mathematical Framework for Ego Reduction and the Misallocation of Infinity Subtraction in Physical Sciences
 
 **Abstract:**
 *We demonstrate that renormalization, unsuccessfully applied to physics for 100 years, finds its natural and only valid application in ego dynamics. Through rigorous mathematical framework and empirical observation, we prove that human ego is the only truly divergent quantity requiring arbitrary infinity subtraction, while physical reality remains frustratingly finite.*
